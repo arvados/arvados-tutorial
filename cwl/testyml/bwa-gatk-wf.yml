@@ -1,0 +1,11 @@
+sample: hu297A5D_AE2CH6SK4DG
+reference:
+  class: File
+  location: keep:a3af04432df3d71d22f2fe8be549ba96+5974/hg38.fa
+fastq1:
+  class: File
+  location: ../../bam/hu297A5D_AE2CH6SK4DG-EXT_100000_R1.fastq.gz
+fastq2:
+  class: File
+  location: ../../bam/hu297A5D_AE2CH6SK4DG-EXT_100000_R2.fastq.gz
+

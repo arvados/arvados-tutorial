@@ -1,0 +1,3 @@
+bam:
+  class: File
+  location: keep:a0ca1f68836aac0bcefaed9cf5c63200+68/out.sorted.bam
