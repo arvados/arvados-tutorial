@@ -60,9 +60,3 @@ steps:
       bam: samtools-index/out
       sample: sample
     out: [vcf]
-  vep:
-    run: vep.cwl
-    in:
-      vcf: haplotypecaller/vcf
-      sample: sample
-    out: [out-vcf]
