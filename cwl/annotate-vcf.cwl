@@ -13,6 +13,15 @@ hints:
 
 stdout: $(inputs.vcf.nameroot).txt
 
+inputs:
+  vcf:
+    type: File
+  clinvarvcf:
+    type: File
+
+outputs:
+  reporttxt: stdout
+
 arguments:
   - bcftools
   - annotate
@@ -26,12 +35,8 @@ arguments:
   - filter
   - prefix: "-i"
     valueFrom: "INFO/ALLELEID>=1"
-
-inputs: 
-  vcf:
-    type: File
-  clinvarvcf:
-    type: File
-  
-outputs:
-  report: stdout
+  - {valueFrom: '|', shellQuote: false}
+  - bcftools
+  - query
+  - prefix: "-f"
+    valueFrom: "%ID\t%CHROM\t%POS\t%REF\t%ALT\t%INFO/ALLELEID\t%INFO/CLNSIG\t%INFO/CLNDN\t%INFO/AF_ESP\t%INFO/AF_EXAC\t%INFO/AF_TGP[\t%GT]\n"

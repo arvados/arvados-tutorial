@@ -25,7 +25,7 @@ outputs:
     outputSource: fastqc/out-zip 
   vcf:
     type: File
-    outputSource: vep/out-vcf
+    outputSource: haplotypecaller/vcf
 
 steps:
   fastqc:

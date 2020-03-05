@@ -1,5 +1,6 @@
 cwlVersion: v1.1
 class: CommandLineTool
+label: Germline variant calling using GATK with output gvcf
 
 requirements:
   DockerRequirement:
@@ -12,18 +13,6 @@ hints:
   ResourceRequirement:
     ramMin: 10000
     coresMin: 4    
-
-arguments:
-  - java
-  - -jar
-  - /gatk/gatk.jar
-  - HaplotypeCaller
-  - -R
-  - $(inputs.reference)
-  - -I
-  - $(inputs.bam)
-  - -O
-  - $(runtime.outdir)/$(inputs.sample).gatk.vcf
 
 inputs:
   bam:
@@ -47,3 +36,17 @@ outputs:
     type: File
     outputBinding:
       glob: "*vcf"
+
+arguments:
+  - java
+  - -jar
+  - /gatk/gatk.jar
+  - HaplotypeCaller
+  - -R
+  - $(inputs.reference)
+  - -I
+  - $(inputs.bam)
+  - -O
+  - $(runtime.outdir)/$(inputs.sample).gatk.g.vcf
+  - -ERC
+  - "GVCF"

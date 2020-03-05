@@ -9,15 +9,6 @@ requirements:
     ramMin: 10000
     coresMin: 4
 
-arguments:
-  - samtools
-  - sort
-  - -t
-  - $(runtime.cores)
-  - $(inputs.bam)
-  - -o
-  - $(runtime.outdir)/$(inputs.sample).sorted.bam
-
 inputs:
   bam: File
   sample: string
@@ -26,4 +17,14 @@ outputs:
   out:
     type: File
     outputBinding:
-      glob: "*sorted.bam"
+      glob: "*sorted.bam
+
+runcommand: samtools
+
+arguments:
+  - sort
+  - -t
+  - $(runtime.cores)
+  - $(inputs.bam)
+  - -o
+  - $(runtime.outdir)/$(inputs.sample).sorted.bam

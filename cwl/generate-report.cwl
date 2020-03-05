@@ -10,15 +10,6 @@ hints:
     ramMin: 10000
     coresMin: 4    
 
-baseCommand: python
-
-arguments:
-  - $(inputs.reportfunc)
-  - $(inputs.sampletxt)
-  - $(inputs.sampletxt.basename)
-  - $(inputs.headhtml)
-  - $(inputs.tailhtml)
-
 inputs:
   reportfunc:
     type: File
@@ -28,9 +19,18 @@ inputs:
     type: File
   tailhtml:
     type: File
-    
+
 outputs:
   report:
     type: File
     outputBinding:
       glob: "*html"
+
+baseCommand: python
+
+arguments:
+  - $(inputs.reportfunc)
+  - $(inputs.sampletxt)
+  - $(inputs.sampletxt.basename)
+  - $(inputs.headhtml)
+  - $(inputs.tailhtml)

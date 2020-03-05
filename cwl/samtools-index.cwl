@@ -8,11 +8,6 @@ requirements:
     listing:
       - $(inputs.bam)
 
-arguments:
-  - samtools
-  - index
-  - $(inputs.bam.basename)
-
 inputs:
   bam: File
 
@@ -24,3 +19,8 @@ outputs:
     secondaryFiles:
       - .bai
 
+runcommand: samtools
+
+arguments:
+  - index
+  - $(inputs.bam.basename)
