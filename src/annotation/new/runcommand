@@ -1,7 +1,0 @@
-# annotating the vcf
-bcftools annotate -a /data-sdd/keep/by_id/80aadf801bccd1e1d838b07d46d4de63+1712/37/clinvar.vcf.gz -c ID,INFO /data-sdd/keep/by_id/542f0989c5ee117e20d293ef82311192+114145/hu34D5B9_var-GS000015891-ASM.vcf.gz > annotated.vcf
-# finding the variation and allele IDs for those annotations
-bcftools filter -i "INFO/ALLELEID!=[]" annotated.vcf | bcftools query -f'%ID\t%CHROM\t%POS\t%REF\t%ALT\t%INFO/ALLELEID\t%INFO/CLNSIG\t%INFO/CLNDN\t%INFO/AF_ESP\t%INFO/AF_EXAC\t%INFO/AF_TGP[\t%GT]\n' > reportdata.txt
-# converting data to correct format and to JSON output for report generation
-# for link: https://www.ncbi.nlm.nih.gov/clinvar/variation/128475/
-python generatereport.py 
