@@ -2,8 +2,10 @@ cwlVersion: v1.1
 class: Workflow
 
 inputs:
-  vcf: 
+  gvcf: 
     type: File
+  samplename:
+    type: string
   clinvarvcf:
     type: File
   reportfunc:
@@ -19,10 +21,17 @@ outputs:
     outputSource: generate-report/report
 
 steps:
+  gvcf-to-vcf:
+    run: gvcf-to-vcf.cwl
+    in:
+      gvcf: gvcf
+      samplename: samplename
+    out: [vcf]
+
   annotate:
     run: annotate-vcf.cwl
     in:
-      vcf: vcf
+      vcf: gvcf-to-vcf/vcf
       clinvarvcf: clinvarvcf
     out: [reporttxt]
 
