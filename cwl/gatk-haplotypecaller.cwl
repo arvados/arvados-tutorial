@@ -32,10 +32,10 @@ inputs:
   sample: string
 
 outputs:
-  vcf:
+  gvcf:
     type: File
     outputBinding:
-      glob: "*vcf"
+      glob: "*vcf.gz"
 
 arguments:
   - java
@@ -47,6 +47,6 @@ arguments:
   - -I
   - $(inputs.bam)
   - -O
-  - $(runtime.outdir)/$(inputs.sample).gatk.g.vcf
+  - $(runtime.outdir)/$(inputs.sample).gatk.g.vcf.gz
   - -ERC
   - "GVCF"

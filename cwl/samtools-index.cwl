@@ -19,7 +19,7 @@ outputs:
     secondaryFiles:
       - .bai
 
-runcommand: samtools
+baseCommand: samtools
 
 arguments:
   - index

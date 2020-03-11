@@ -1,6 +1,9 @@
 cwlVersion: v1.1
 class: Workflow
 
+requirements:
+  - class: SubworkflowFeatureRequirement
+
 inputs:
   fastq1: File
   fastq2: File

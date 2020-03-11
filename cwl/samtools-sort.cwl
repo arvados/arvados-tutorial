@@ -17,9 +17,9 @@ outputs:
   out:
     type: File
     outputBinding:
-      glob: "*sorted.bam
+      glob: "*sorted.bam"
 
-runcommand: samtools
+baseCommand: samtools
 
 arguments:
   - sort

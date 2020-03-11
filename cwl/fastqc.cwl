@@ -24,7 +24,7 @@ outputs:
     outputBinding:
       glob: "*fastqc.zip"
 
-basecommand: perl
+baseCommand: perl
 arguments:
   - /FastQC/fastqc
   - $(inputs.fastq1.basename)
