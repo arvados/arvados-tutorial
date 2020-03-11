@@ -1,0 +1,7 @@
+vcf:
+  class: File
+  location: keep:542f0989c5ee117e20d293ef82311192+114145/hu34D5B9_var-GS000015891-ASM.vcf.gz 
+
+clinvarvcf:
+  class: File
+  location: keep:80aadf801bccd1e1d838b07d46d4de63+1712/37/clinvar.vcf.gz

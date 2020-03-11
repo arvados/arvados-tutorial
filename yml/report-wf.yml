@@ -1,0 +1,21 @@
+gvcf:
+  class: File
+  location: keep:02615a79bbe37b48629db97ab43147ae+1123/hu297A5D_AE2CH6SK4DG.gatk.g.vcf
+
+samplename: hu297A5D_AE2CH6SK4DG
+
+clinvarvcf:
+  class: File
+  location: keep:80aadf801bccd1e1d838b07d46d4de63+1712/38/clinvar.vcf.gz
+
+reportfunc:
+  class: File
+  location: ../src/annotation/generatereport.py
+
+headhtml:
+  class: File
+  location: /data-sdd/pgp/arvados-tutorial/src/annotation/head.html
+
+tailhtml:
+  class: File
+  location: /data-sdd/pgp/arvados-tutorial/src/annotation/tail.html

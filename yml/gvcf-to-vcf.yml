@@ -1,0 +1,5 @@
+gvcf:
+  class: File
+  location: keep:02615a79bbe37b48629db97ab43147ae+1123/hu297A5D_AE2CH6SK4DG.gatk.g.vcf 
+
+samplename: hu297A5D_AE2CH6SK4DG

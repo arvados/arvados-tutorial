@@ -1,0 +1,12 @@
+reportfunc:
+  class: File
+  location: ../src/annotation/generatereport.py
+sampletxt:
+  class: File
+  location: /data-sdd/pgp/arvados-tutorial/src/annotation/hu34D5B9_var-GS000015891-ASM.txt
+headhtml:
+  class: File
+  location: /data-sdd/pgp/arvados-tutorial/src/annotation/head.html
+tailhtml:
+  class: File
+  location: /data-sdd/pgp/arvados-tutorial/src/annotation/tail.html
