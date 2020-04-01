@@ -1,0 +1,6 @@
+tar -xvf ./keep/by_id/d25f1c7905d1b16ab8c799a37fc96d56+1805224/hu007B82_1YB27IM.bam.tgz
+
+samtools merge WGC071838D.bam WGC071838D_combined.chr*bam
+docker run -ti -v=/home/bcosca2/issues/15996/bam/7HL58AX:/7HL58AX curii/bam2fastq
+/bam2fastq/bam2fastq  WGC071838D.bam
+
