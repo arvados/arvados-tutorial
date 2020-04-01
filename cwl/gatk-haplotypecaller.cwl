@@ -11,7 +11,7 @@ requirements:
 
 hints:
   ResourceRequirement:
-    ramMin: 10000
+    ramMin: 20000
     coresMin: 4    
 
 inputs:
@@ -37,16 +37,23 @@ outputs:
     outputBinding:
       glob: "*vcf.gz"
 
+baseCommand: /gatk/gatk
+
 arguments:
-  - java
-  - -jar
-  - /gatk/gatk.jar
+  - "--java-options"
+  - "-Xmx8G" 
   - HaplotypeCaller
-  - -R
-  - $(inputs.reference)
-  - -I
-  - $(inputs.bam)
-  - -O
-  - $(runtime.outdir)/$(inputs.sample).gatk.g.vcf.gz
-  - -ERC
-  - "GVCF"
+  - prefix: "-R"
+    valueFrom: $(inputs.reference)
+  - prefix: "-I"
+    valueFrom: $(inputs.bam)
+  - prefix: "-O"
+    valueFrom: $(runtime.outdir)/$(inputs.sample).gatk.g.vcf.gz
+  - prefix: "-ERC"
+    valueFrom: "GVCF"
+  - prefix: "-GQB"
+    valueFrom: "5"
+  - prefix: "-GQB"
+    valueFrom: "20"
+  - prefix: "-GQB"
+    valueFrom: "60"

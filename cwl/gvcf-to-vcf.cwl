@@ -31,6 +31,8 @@ arguments:
   - prefix: "--min-ac"
     valueFrom: "1"
   - $(inputs.gvcf.path)
+  - prefix: "-i"
+    valueFrom: "AVG(GQ)>20"
   - valueFrom: "-Ov"
   - prefix: "-o"
     valueFrom: $(inputs.samplename).vcf

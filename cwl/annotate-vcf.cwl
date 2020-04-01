@@ -18,7 +18,6 @@ inputs:
     type: File
   clinvarvcf:
     type: File
-
 outputs:
   reporttxt: stdout
 
