@@ -4,8 +4,8 @@ USER root
 # Install python tools
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 RUN apt-get install -y apt-utils && apt-get install -y unzip
-RUN apt-get install autoconf -y
-RUN apt-get install wget -y
+RUN apt-get install autoconf -y 
+RUN apt-get install wget -y 
 RUN apt-get install python-pip -y
 RUN apt-get install python-numpy -y && apt-get install python-scipy -y
 RUN apt-get install python-matplotlib -y && apt-get install python-pandas -y
@@ -55,13 +55,6 @@ RUN apt-get remove libhts-dev
 # Installing htslib
 RUN cd /tmp && wget http://github.com/samtools/htslib/archive/1.10.2.zip && unzip 1.10.2 && cd htslib-1.10.2 && make && make install && cd /tmp && rm -rf htslib-1.10.2 && ldconfig
 
-# Installing samtools
+# Installing bcftools
 
-RUN wget http://github.com/samtools/samtools/releases/download/1.10/samtools-1.10.tar.bz2 && tar -xvf samtools-1.10.tar.bz2 && cd samtools-1.10 && autoheader && autoconf && ./configure && make && make install 
-
-RUN git clone --recursive https://github.com/jts/bam2fastq
-WORKDIR /bam2fastq
-RUN make
-
-WORKDIR /
-
+RUN wget http://github.com/samtools/bcftools/archive/1.10.2.zip && unzip 1.10.2 && cd bcftools-1.10.2 && autoheader && autoconf && ./configure && make && make install
