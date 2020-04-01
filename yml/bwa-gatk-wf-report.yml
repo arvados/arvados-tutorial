@@ -1,4 +1,4 @@
-sample: hu297A5D_AE2CH6SK4DG
+sample: WGC071838D
 
 reference:
   class: File
@@ -6,15 +6,15 @@ reference:
 
 fastq1:
   class: File
-  location: keep:06a9452462b67765a81352638a610a5a+198/hu297A5D_AE2CH6SK4DG-EXT_100000_R1.fastq.gz
+  location: keep:24df1ea93ad5275aa511462ea85b0548+20283/WGC071838D_R1.fastq.gz
 
 fastq2:
   class: File
-  location: keep:06a9452462b67765a81352638a610a5a+198/hu297A5D_AE2CH6SK4DG-EXT_100000_R2.fastq.gz
+  location: keep:24df1ea93ad5275aa511462ea85b0548+20283/WGC071838D_R2.fastq.gz
 
 clinvarvcf:
   class: File
-  location: keep:80aadf801bccd1e1d838b07d46d4de63+1712/38/clinvar.vcf.gz
+  location: keep:242ba3b9049aee86ab2c72db4f3b2822+223/38/clinvar.vcf.gz
 
 reportfunc:
   class: File
