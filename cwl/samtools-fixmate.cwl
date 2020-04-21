@@ -8,9 +8,10 @@ $namespaces:
 requirements:
   DockerRequirement:
     dockerPull: curii/bwa-samtools-picard
-  InitialWorkDirRequirement:
-    listing:
-      - $(inputs.bam)
+  ShellCommandRequirement: {}
+  ResourceRequirement:
+    ramMin: 10000
+    coresMin: 4
 
 hints:
   arv:RuntimeConstraints:
@@ -18,17 +19,19 @@ hints:
 
 inputs:
   bam: File
+  sample: string
 
 outputs:
   out:
     type: File
     outputBinding:
-      glob: "*bam"
-    secondaryFiles:
-      - .bai
+      glob: "*fixed.bam"
 
 baseCommand: samtools
 
 arguments:
-  - index
-  - $(inputs.bam.basename)
+  - fixmate 
+  - -O
+  - "bam"
+  - $(inputs.bam.path)
+  - $(runtime.outdir)/$(inputs.sample).fixed.bam

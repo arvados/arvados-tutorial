@@ -2,6 +2,10 @@ cwlVersion: v1.1
 class: CommandLineTool
 label: Germline variant calling using GATK with output gvcf
 
+$namespaces:
+  arv: "http://arvados.org/cwl#"
+  cwltool: "http://commonwl.org/cwltool#"
+
 requirements:
   DockerRequirement:
     dockerPull: broadinstitute/gatk
@@ -10,9 +14,12 @@ requirements:
       - $(inputs.bam)
 
 hints:
+  arv:RuntimeConstraints:
+    outputDirType: keep_output_dir
+    keep_cache: 1024 
   ResourceRequirement:
-    ramMin: 20000
-    coresMin: 4    
+    ramMin: 5000
+    coresMin: 2    
 
 inputs:
   bam:
@@ -41,7 +48,7 @@ baseCommand: /gatk/gatk
 
 arguments:
   - "--java-options"
-  - "-Xmx8G" 
+  - "-Xmx4G" 
   - HaplotypeCaller
   - prefix: "-R"
     valueFrom: $(inputs.reference)

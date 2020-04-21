@@ -1,25 +1,13 @@
 cwlVersion: v1.1
 class: CommandLineTool
 
-$namespaces:
-  arv: "http://arvados.org/cwl#"
-  cwltool: "http://commonwl.org/cwltool#"
-
 requirements:
   DockerRequirement:
     dockerPull: curii/bwa-samtools-picard
   ShellCommandRequirement: {}
-  InitialWorkDirRequirement:
-    listing:
-      - $(inputs.bam)
   ResourceRequirement:
-    ramMin: 20000
+    ramMin: 10000
     coresMin: 4
-
-hints:
-  arv:RuntimeConstraints:
-    keep_cache: 9216 
-    outputDirType: keep_output_dir
 
 inputs:
   bam: File
@@ -35,10 +23,8 @@ baseCommand: samtools
 
 arguments:
   - sort
-  - -@
+  - -t
   - $(runtime.cores)
-  - $(inputs.bam.basename)
-  - -m
-  - '2G'
+  - $(inputs.bam)
   - -o
-  - $(inputs.sample).sorted.bam
+  - $(runtime.outdir)/$(inputs.sample).sorted.bam
