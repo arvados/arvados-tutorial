@@ -50,16 +50,18 @@ arguments:
   - -R
   - '@RG\tID:sample\tSM:sample\tLB:sample\tPL:ILLUMINA\tPU:sample1' 
   - -c
-  - 250
+  - '250'
   - $(inputs.fastq1)
   - $(inputs.fastq2)
   - shellQuote: false
     valueFrom: '|'
   - samtools
-  - view
+  - sort 
   - -@
   - $(runtime.cores)
-  - -b
-  - -S
-  - shellQuote: false
-    valueFrom: '-'
+  - -m
+  - '2G'
+  - -l
+  - '6'
+  - -o
+  - $(inputs.sample).sorted.bam

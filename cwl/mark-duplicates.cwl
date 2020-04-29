@@ -7,7 +7,7 @@ $namespaces:
 
 requirements:
   DockerRequirement:
-    dockerPull: broadinstitute/gatk
+    dockerPull: broadinstitute/gatk:4.1.7.0
 
 hints:
   ResourceRequirement:
