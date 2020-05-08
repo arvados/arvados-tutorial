@@ -1,5 +1,6 @@
 cwlVersion: v1.1
 class: CommandLineTool
+label: Indexing Bam File
 
 $namespaces:
   arv: "http://arvados.org/cwl#"
@@ -20,7 +21,7 @@ inputs:
   bam: File
 
 outputs:
-  out:
+  bam:
     type: File
     outputBinding:
       glob: "*bam"

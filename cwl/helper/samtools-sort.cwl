@@ -1,5 +1,6 @@
 cwlVersion: v1.1
 class: CommandLineTool
+label: Sorting Bam file
 
 $namespaces:
   arv: "http://arvados.org/cwl#"
@@ -26,7 +27,7 @@ inputs:
   sample: string
 
 outputs:
-  out:
+  bam:
     type: File
     outputBinding:
       glob: "*sorted.bam"

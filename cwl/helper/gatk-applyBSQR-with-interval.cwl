@@ -1,6 +1,6 @@
 cwlVersion: v1.1
 class: CommandLineTool
-label: Generating recalibration table for BQSR 
+label: Applying base quality score recalibration 
 
 $namespaces:
   arv: "http://arvados.org/cwl#"
@@ -24,6 +24,8 @@ hints:
 inputs:
   bam:
     type: File
+    secondaryFiles:
+      - .bai
   reference:
     type: File
     secondaryFiles:
@@ -35,28 +37,32 @@ inputs:
       - .fai
       - ^.dict
   sample: string
-  knownsites1: 
+  recaltable: 
     type: File
-    secondaryFiles:
-      - .tbi
+  intervallist:
+    type: File
 
 outputs:
-  recaltable:
+  recalbam:
     type: File
+    secondaryFiles: 
+      - .bai
     outputBinding:
-      glob: "*.table"
+      glob: "*nodups_BQSR.bam"
 
 baseCommand: /gatk/gatk
 
 arguments:
   - "--java-options"
   - "-Xmx4G"
-  - BaseRecalibrator
+  - ApplyBQSR
   - prefix: "-R"
     valueFrom: $(inputs.reference)
   - prefix: "-I"
     valueFrom: $(inputs.bam.basename)
-  - prefix: "--known-sites"
-    valueFrom: $(inputs.knownsites1)
+  - prefix: "--bqsr-recal-file"
+    valueFrom: $(inputs.recaltable)
+  - prefix: "-L"
+    valueFrom: $(inputs.intervallist)
   - prefix: "-O"
-    valueFrom: $(inputs.sample)_recal_data.table
+    valueFrom: $(inputs.sample)nodups_BQSR.bam
