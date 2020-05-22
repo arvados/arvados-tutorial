@@ -1,0 +1,10 @@
+bam:
+  class: File
+  location: keep:377c02de508dff9e4474f9a48d754933+53821/marked_dupsERR1726424.sorted.bam 
+reference:
+  class: File
+  location: keep:a3af04432df3d71d22f2fe8be549ba96+5974/hg38.fa
+intervallist:
+  class: File
+  location: keep:4d4947f6637f0acec32580e09d991967+815/0000-scattered.interval_list
+sample: ERR1726424

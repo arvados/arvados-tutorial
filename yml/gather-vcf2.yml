@@ -1,0 +1,13 @@
+reference:
+  class: File
+  location: keep:a3af04432df3d71d22f2fe8be549ba96+5974/hg38.fa
+sample: ERR1726424
+gvcf1:
+  class: File
+  location: keep:dec5da8ebcda12b3eece8705a4391f55+2510/ERR1726424.gatk.g.vcf.gz 
+
+gvcf2:
+  class: File
+  location: keep:dec5da8ebcda12b3eece8705a4391f55+2510/ERR1726424.gatk.g.vcf_10.gz
+
+
