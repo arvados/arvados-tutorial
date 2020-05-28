@@ -8,6 +8,6 @@ gvcf1:
 
 gvcf2:
   class: File
-  location: keep:dec5da8ebcda12b3eece8705a4391f55+2510/ERR1726424.gatk.g.vcf_10.gz
+  location: keep:054cb90cfb20dedb862af1fdd636ad3f+297/ERR1726424_10.gatk.g.vcf.gz
 
 

@@ -11,7 +11,6 @@ requirements:
   ShellCommandRequirement: {}
   InitialWorkDirRequirement:
     listing:
-      - $(inputs.gvcflist)
       - $(inputs.gvcf1)
       - $(inputs.gvcf2)
 
@@ -26,8 +25,6 @@ inputs:
   gvcf1:
     type: File
   gvcf2:
-    type: File
-  gvcflist:
     type: File
   sample: string
   reference:
@@ -44,7 +41,7 @@ outputs:
   gatheredgvcf:
     type: File
     outputBinding:
-      glob: "*g.vcf.gz"
+      glob: "*.g.vcf.gz"
 
 baseCommand: /gatk/gatk
 
@@ -52,7 +49,9 @@ arguments:
   - "--java-options"
   - "-Xmx8G" 
   - GatherVcfs
-  - prefix: "-I"
-    valueFrom: $(inputs.gvcflist.basename) 
+  - "-I"
+  - $(inputs.gvcf1.basename) 
+  - "-I"
+  - $(inputs.gvcf2.basename)
   - prefix: "-O"
-    valueFrom: $(inputs.sample)g.vcf.gz
+    valueFrom: $(inputs.sample).g.vcf.gz

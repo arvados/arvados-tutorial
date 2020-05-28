@@ -9,10 +9,7 @@ requirements:
   DockerRequirement:
     dockerPull: broadinstitute/gatk:4.1.7.0
   ShellCommandRequirement: {}
-  InitialWorkDirRequirement:
-    listing:
-      - $(inputs.gvcf1)
-      - $(inputs.gvcf2)
+  InlineJavascriptRequirement: {}
 
 hints:
   ResourceRequirement:
@@ -22,10 +19,7 @@ hints:
     outputDirType: keep_output_dir
 
 inputs:
-  gvcf1:
-    type: File
-  gvcf2:
-    type: File
+  gvcfarray: File[]
   sample: string
   reference:
     type: File
@@ -41,17 +35,22 @@ outputs:
   gatheredgvcf:
     type: File
     outputBinding:
-      glob: "*g.vcf.gz"
+      glob: "*.g.vcf.gz"
 
 baseCommand: /gatk/gatk
 
 arguments:
   - "--java-options"
   - "-Xmx8G" 
-  - MergeVcfs
-  - prefix: "-I"
-    valueFrom: $(inputs.gvcf1.basename) 
-  - prefix: "-I"
-    valueFrom: $(inputs.gvcf2.basename)
+  - GatherVcfs
+  - shellQuote: false
+    valueFrom: >
+      ${
+        var cmd "";
+        for( var i = 0; i < inputs.gvcfarray.length; i++){
+           cmd += "\s echo " + "-I" + "\s" + inputs.gvcfsarray[i]
+        }
+        return cmd;
+       } 
   - prefix: "-O"
-    valueFrom: $(inputs.sample)g.vcf.gz
+    valueFrom: $(inputs.sample).g.vcf.gz

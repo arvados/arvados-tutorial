@@ -1,6 +1,5 @@
 cwlVersion: v1.1
 class: CommandLineTool
-label: Germline variant calling using GATK with output gvcf
 
 $namespaces:
   arv: "http://arvados.org/cwl#"
@@ -13,16 +12,16 @@ requirements:
 hints:
   arv:RuntimeConstraints:
     outputDirType: keep_output_dir
-    keep_cache: 1024 
+    keep_cache: 1024
   ResourceRequirement:
-    ramMin: 3500
-    coresMin: 2   
+    ramMin: 5000
+    coresMin: 2
 
 inputs:
-  bam:
+  gvcf:
     type: File
     secondaryFiles:
-      - .bai
+      - .tbi
   reference:
     type: File
     secondaryFiles:
@@ -33,35 +32,25 @@ inputs:
       - .sa
       - .fai
       - ^.dict
-  intervallist:
-    type: File
   sample: string
 
 outputs:
-  gvcf:
+  genotypegvcf:
     type: File
     outputBinding:
-      glob: "*vcf.gz"
+      glob: "*selected.g.vcf.gz"
 
 baseCommand: /gatk/gatk
 
 arguments:
   - "--java-options"
-  - "-Xmx4G" 
-  - HaplotypeCaller
+  - "-Xmx4G"
+  - SelectVariants 
   - prefix: "-R"
     valueFrom: $(inputs.reference)
-  - prefix: "-I"
-    valueFrom: $(inputs.bam)
-  - prefix: "-L"
-    valueFrom: $(inputs.intervallist)
+  - prefix: "--remove-unused-alternates"
+    valueFrom: "true"
+  - prefix: "-V"
+    valueFrom: $(inputs.gvcf)
   - prefix: "-O"
-    valueFrom: $(runtime.outdir)/$(inputs.sample)-$(inputs.intervallist.nameroot).gatk.g.vcf.gz
-  - prefix: "-ERC"
-    valueFrom: "GVCF"
-  - prefix: "-GQB"
-    valueFrom: "5"
-  - prefix: "-GQB"
-    valueFrom: "20"
-  - prefix: "-GQB"
-    valueFrom: "60"
+    valueFrom: $(inputs.sample)selected.g.vcf.gz
