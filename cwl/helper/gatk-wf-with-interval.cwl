@@ -30,7 +30,7 @@ inputs:
 outputs:
   gvcf:
     type: File
-    outputSource: haplotypecaller/gvcf
+    outputSource: selectvariants/filteredgvcf
 
 steps:
   basecalibrator:
@@ -59,3 +59,10 @@ steps:
       sample: sample
       intervallist: intervallist
     out: [gvcf]
+  selectvariants:
+    run: gatk-selectvariants.cwl
+    in: 
+      gvcf: haplotypecaller/gvcf
+      reference: reference
+      sample: sample
+    out: [filteredgvcf]

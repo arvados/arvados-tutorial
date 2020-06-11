@@ -10,9 +10,6 @@ requirements:
   DockerRequirement:
     dockerPull: curii/bwa-samtools-picard
   ShellCommandRequirement: {}
-  InitialWorkDirRequirement:
-    listing:
-      - $(inputs.bam)
   ResourceRequirement:
     ramMin: 20000
     coresMin: 4
@@ -27,7 +24,7 @@ inputs:
   sample: string
 
 outputs:
-  bam:
+  sortedbam:
     type: File
     outputBinding:
       glob: "*sorted.bam"
@@ -38,7 +35,7 @@ arguments:
   - sort
   - -@
   - $(runtime.cores)
-  - $(inputs.bam.basename)
+  - $(inputs.bam.path)
   - -m
   - '2G'
   - -o

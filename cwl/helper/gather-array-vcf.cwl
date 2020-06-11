@@ -19,10 +19,8 @@ hints:
     outputDirType: keep_output_dir
 
 inputs:
-  gvcfdir: 
-    type: Directory
-    label: Input directory of gvcfs
-    loadListing: 'shallow_listing'
+  gvcfarray: 
+    type: File[] 
   sample: string
   reference:
     type: File
@@ -61,17 +59,20 @@ arguments:
       comparison = -1;
       }
       return comparison;
-      } 
+      }
 
+      var sortedarray = [];
+      sortedarray = inputs.gvcfarray.sort(compare)
+ 
       var samples = [];
-      for (var i = 0; i < inputs.gvcfdir.listing.length; i++) {
-        var name = inputs.gvcfdir.listing[i];
+      for (var i = 0; i < sortedarray.length; i++) {
+        var name = sortedarray[i];
         if (name.nameext ==='.gz' ) {
           samples.push(name.path);
         }
       }
-      samples = samples.sort(compare);
-      var sampleinput = [];
+     
+      var sampleinput = "";
 
       for (var i = 0; i < samples.length; i++) {
        var s1 = samples[i];

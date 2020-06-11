@@ -19,7 +19,10 @@ hints:
     outputDirType: keep_output_dir
 
 inputs:
-  gvcfarray: File[]
+  gvcfdir: 
+    type: Directory
+    label: Input directory of gvcfs
+    loadListing: 'shallow_listing'
   sample: string
   reference:
     type: File
@@ -45,12 +48,22 @@ arguments:
   - GatherVcfs
   - shellQuote: false
     valueFrom: >
-      ${
-        var cmd "";
-        for( var i = 0; i < inputs.gvcfarray.length; i++){
-           cmd += "\s echo " + "-I" + "\s" + inputs.gvcfsarray[i]
-        }
-        return cmd;
-       } 
+    ${
+    var samples = [];
+    for (var i = 0; i < inputs.gvcfdir.listing.length; i++) {
+      var name = inputs.gvcfdir.listing[i];
+      if (name.nameext ==='.gz' ) {
+        samples.push(name.basename);
+      }
+    }
+    samples = samples.sort();
+    var sampleinput = [];
+
+    for (var i = 0; i < samples.length; i++) {
+     var s1 = samples[i];
+     sampleinput = sampleinput + "-I " + s1 + " "
+    }
+    return sampleinput;
+    }
   - prefix: "-O"
     valueFrom: $(inputs.sample).g.vcf.gz

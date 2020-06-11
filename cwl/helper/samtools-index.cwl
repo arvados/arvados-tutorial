@@ -21,7 +21,7 @@ inputs:
   bam: File
 
 outputs:
-  bam:
+  indexedbam:
     type: File
     outputBinding:
       glob: "*bam"

@@ -40,6 +40,8 @@ inputs:
 outputs:
   gvcf:
     type: File
+    secondaryFiles:
+      - .tbi
     outputBinding:
       glob: "*vcf.gz"
 

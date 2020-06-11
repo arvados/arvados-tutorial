@@ -31,10 +31,12 @@ inputs:
   scattercount: string
 
 outputs:
-  gvcf:
-    type: File[]
-    outputSource: recal-haplotypecaller/gvcf
-
+  gatheredgvcf:
+    type: File
+    secondaryFiles: 
+      - .tbi
+    outputSource: merge-GVCFs/gatheredgvcf
+    
 steps:
   splitintervals:
     run: gatk-splitintervals.cwl
@@ -54,3 +56,11 @@ steps:
       knownsites1: knownsites1
       intervallist: splitintervals/intervalfiles
     out: [gvcf]
+
+  merge-GVCFs:
+    run: gather-array-vcf.cwl
+    in:
+      gvcfarray: recal-haplotypecaller/gvcf
+      sample: sample
+      reference: reference
+    out: [gatheredgvcf] 

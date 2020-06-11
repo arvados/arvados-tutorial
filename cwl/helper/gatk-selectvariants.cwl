@@ -35,10 +35,10 @@ inputs:
   sample: string
 
 outputs:
-  genotypegvcf:
+  filteredgvcf:
     type: File
     outputBinding:
-      glob: "*selected.g.vcf.gz"
+      glob: "*g.vcf.gz"
 
 baseCommand: /gatk/gatk
 
@@ -51,6 +51,6 @@ arguments:
   - prefix: "--remove-unused-alternates"
     valueFrom: "true"
   - prefix: "-V"
-    valueFrom: $(inputs.gvcf)
+    valueFrom: $(inputs.gvcf.path)
   - prefix: "-O"
-    valueFrom: $(inputs.sample)selected.g.vcf.gz
+    valueFrom: selected$(inputs.gvcf.basename)
