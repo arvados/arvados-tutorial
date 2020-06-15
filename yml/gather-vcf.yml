@@ -2,16 +2,7 @@ reference:
   class: File
   location: keep:a3af04432df3d71d22f2fe8be549ba96+5974/hg38.fa
 sample: ERR1726424
-gvcflist:
-  class: File
-  location: /data-sdd/pgp/arvados-tutorial/src/variantcalling/sample-files.list
-gvcf1:
-  class: File
-  location: keep:dec5da8ebcda12b3eece8705a4391f55+2510/ERR1726424.gatk.g.vcf.gz
-
-gvcf2:
-  class: File
-  location: keep:dec5da8ebcda12b3eece8705a4391f55+2510/ERR1726424.gatk.g.vcf_10.gz
-
-
+gvcfdir:
+  class: Directory
+  location: keep:1da945b644da2182d010fb1b7745233f+2725
 

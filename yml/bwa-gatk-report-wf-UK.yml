@@ -27,3 +27,9 @@ headhtml:
 tailhtml:
   class: File
   location: /data-sdd/pgp/arvados-tutorial/src/annotation/tail.html
+
+scattercount: '32'
+
+knownsites:
+  class: File
+  location: keep:7c0b13bda857fa15d88c1039182f69d5+8052/Homo_sapiens_assembly38.known_indels.vcf.gz
