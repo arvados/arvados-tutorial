@@ -1,0 +1,7 @@
+Arvados demo showing processing of  whole genome sequencing (WGS) data. The workflow includes:
+
+* Local alignment using BWA-MEM
+* Variant calling in parallel using GATK
+* Generation of HTML Report showing Comparision of Variants with ClinVar Public Archive 
+
+Workflows are written in CWL
