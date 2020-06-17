@@ -43,7 +43,7 @@ outputs:
     outputSource: generate-report/report
 steps:
   fastqc:
-    run: fastqc.cwl
+    run: ./helper/fastqc.cwl
     in:
       fastq1: fastq1
       fastq2: fastq2
@@ -57,13 +57,13 @@ steps:
       sample: sample
     out: [bam]
   samtools-sort:
-    run: samtools-sort.cwl 
+    run: ./helper/samtools-sort.cwl 
     in:
       bam: bwamem-samtools-view/bam
       sample: sample
     out: [sortedbam]
   mark-duplicates:
-    run: mark-duplicates.cwl
+    run: ./helper/mark-duplicates.cwl
     in:
       bam: samtools-sort/sortedbam
     out: [dupbam,dupmetrics]
@@ -73,7 +73,7 @@ steps:
       bam: mark-duplicates/dupbam
     out: [indexedbam]
   haplotypecaller:
-    run: scatter-gatk-wf-with-interval.cwl 
+    run: ./helper/scatter-gatk-wf-with-interval.cwl 
     in:
       reference: reference
       bam: samtools-index/indexedbam
@@ -82,7 +82,7 @@ steps:
       knownsites1: knownsites
     out: [gatheredgvcf]
   generate-report:
-    run: report-wf.cwl
+    run: ./helper/report-wf.cwl
     in:
       gvcf: haplotypecaller/gatheredgvcf
       samplename: sample
@@ -90,4 +90,4 @@ steps:
       reportfunc: reportfunc
       headhtml: headhtml
       tailhtml: tailhtml
-    out: [report]  
+    out: [report] 

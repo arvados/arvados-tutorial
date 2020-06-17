@@ -34,7 +34,7 @@ outputs:
 
 steps:
   basecalibrator:
-    run: gatk-baserecalibrator-with-interval.cwl
+    run: ./helper/gatk-baserecalibrator-with-interval.cwl
     in:
       bam: bam
       reference: reference
@@ -43,7 +43,7 @@ steps:
       intervallist: intervallist
     out: [recaltable]
   applyBQSR:
-    run: gatk-applyBSQR-with-interval.cwl
+    run: ./helper/gatk-applyBSQR-with-interval.cwl
     in: 
       reference: reference
       bam: bam
@@ -52,7 +52,7 @@ steps:
       recaltable: basecalibrator/recaltable
     out: [recalbam]
   haplotypecaller:
-    run: gatk-haplotypecaller-with-interval.cwl
+    run: ./helper/gatk-haplotypecaller-with-interval.cwl
     in:
       reference: reference
       bam: applyBQSR/recalbam
@@ -60,7 +60,7 @@ steps:
       intervallist: intervallist
     out: [gvcf]
   selectvariants:
-    run: gatk-selectvariants.cwl
+    run: ./helper/gatk-selectvariants.cwl
     in: 
       gvcf: haplotypecaller/gvcf
       reference: reference
