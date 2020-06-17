@@ -3,10 +3,10 @@ class: Workflow
 
 requirements:
   - class: SubworkflowFeatureRequirement
+  - class: ScatterFeatureRequirement
 
 inputs:
-  fastq1: File
-  fastq2: File
+  fastqdir: Directory 
   reference:
     type: File
     secondaryFiles:
@@ -29,65 +29,33 @@ inputs:
   tailhtml: File
 
 outputs:
-  qc-html:
-    type: File[]
-    outputSource: fastqc/out-html
-  qc-zip:
-    type: File[]
-    outputSource: fastqc/out-zip 
   gvcf:
-    type: File
-    outputSource: haplotypecaller/gatheredgvcf
+    type: File[]
+    outputSource: bwamem-gatk-report/gvcf
   report:
-    type: File  
-    outputSource: generate-report/report
+    type: File[]  
+    outputSource: bwamem-gatk-report/report
+
 steps:
-  fastqc:
-    run: fastqc.cwl
+  getfastq:
+    run: ./helper/getfastq.cwl
     in:
-      fastq1: fastq1
-      fastq2: fastq2
-    out: [out-html, out-zip]
-  bwamem-samtools-view:
-    run: bwamem-samtools-view.cwl
+      fastqdir: fastqdir
+    out: [fastq1, fastq2]
+
+  bwamem-gatk-report:
+    run: ./helper/bwamem-gatk-report-wf.cwl
+    scatter: [fastq1, fastq2]
+    scatterMethod: dotproduct
     in:
-      fastq1: fastq1
-      fastq2: fastq2
+      fastq1: getfastq/fastq1
+      fastq2: getfastq/fastq2
       reference: reference
       sample: sample
-    out: [bam]
-  samtools-sort:
-    run: samtools-sort.cwl 
-    in:
-      bam: bwamem-samtools-view/bam
-      sample: sample
-    out: [sortedbam]
-  mark-duplicates:
-    run: mark-duplicates.cwl
-    in:
-      bam: samtools-sort/sortedbam
-    out: [dupbam,dupmetrics]
-  samtools-index:
-    run: samtools-index.cwl
-    in:
-      bam: mark-duplicates/dupbam
-    out: [indexedbam]
-  haplotypecaller:
-    run: scatter-gatk-wf-with-interval.cwl 
-    in:
-      reference: reference
-      bam: samtools-index/indexedbam
-      sample: sample
+      knownsites: knownsites
       scattercount: scattercount
-      knownsites1: knownsites
-    out: [gatheredgvcf]
-  generate-report:
-    run: report-wf.cwl
-    in:
-      gvcf: haplotypecaller/gatheredgvcf
-      samplename: sample
       clinvarvcf: clinvarvcf
       reportfunc: reportfunc
       headhtml: headhtml
       tailhtml: tailhtml
-    out: [report]  
+    out: [qc-html,qc-zip,gvcf,report]
