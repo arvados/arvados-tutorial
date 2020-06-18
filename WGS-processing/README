@@ -7,18 +7,18 @@ This directory contains an Arvados demo showing processing of whole genome seque
 
 Workflows are written in CWL v1.1. 
 
+Subdirectories are:
+cwl - contains CWL code for the demo
+yml - contains yml inputs for cwl demo code
+src - contains any src code for the demo
+docker - contains dockerfiles necessary to re-create any needed docker images 
+
 To run the workflow:
 
 1. cd into cwl directory
 
 2. run the following:
 arvados-cwl-runner --no-wait --project-uuid YOUR_PROJECT_UUID wgs-processing-wf.cwl ../yml/YOURINPUTS.yml
-
-Subdirectories are:
-cwl - contains CWL code for the demo
-yml - contains yml inputs for cwl demo code
-src - contains any src code for the demo
-docker - contains dockerfiles necessary to re-create any needed docker images 
 
 About the Demo Data:
 WGS Data used in this demo is public data made available by the Personal Genome Project.  This data is from the PGP-UK (https://www.personalgenomes.org.uk/). 
