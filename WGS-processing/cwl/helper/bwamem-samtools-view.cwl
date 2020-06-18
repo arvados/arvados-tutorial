@@ -10,11 +10,12 @@ requirements:
     dockerPull: curii/bwa-samtools-picard
   ShellCommandRequirement: {}
   ResourceRequirement:
-    ramMin: 26000
+    ramMin: 50000
     coresMin: 16 
 
 hints:
   arv:RuntimeConstraints:
+    keep_cache: 1024 
     outputDirType: keep_output_dir
 
 inputs:
