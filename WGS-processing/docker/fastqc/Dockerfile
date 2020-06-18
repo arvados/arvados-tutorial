@@ -1,7 +1,6 @@
-FROM arvados/jobs
-MAINTAINER Bryan Cosca <bcosca@curii.com>
-
+FROM arvados/jobs:latest
 USER root
+MAINTAINER Sarah Wait Zaranek <swz@curii.com>
 
 RUN apt-get update -qy
 RUN apt-get install -qy build-essential wget cmake zlib1g-dev python-pip unzip libbz2-dev liblzma-dev libcurl4-openssl-dev libncurses-dev

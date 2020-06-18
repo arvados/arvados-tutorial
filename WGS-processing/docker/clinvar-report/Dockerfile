@@ -1,5 +1,6 @@
 FROM arvados/jobs:latest
 USER root
+MAINTAINER Sarah Wait Zaranek <swz@curii.com>
 
 # Install python tools
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
