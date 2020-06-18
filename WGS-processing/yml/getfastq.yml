@@ -1,3 +1,3 @@
-fastjdir:
+fastqdir:
   class: Directory 
   location: keep:fd9539730452a3de5712a9df464dcd81+187497 

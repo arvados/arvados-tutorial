@@ -22,21 +22,21 @@ outputs:
 
 steps:
   gvcf-to-vcf:
-    run: ./helper/gvcf-to-vcf.cwl
+    run: gvcf-to-vcf.cwl
     in:
       gvcf: gvcf
       samplename: samplename
     out: [vcf]
 
   annotate:
-    run: ./helper/annotate-vcf.cwl
+    run: annotate-vcf.cwl
     in:
       vcf: gvcf-to-vcf/vcf
       clinvarvcf: clinvarvcf
     out: [reporttxt]
 
   generate-report:
-    run: ./helper/generate-report.cwl
+    run: generate-report.cwl
     in:
       reportfunc: reportfunc
       sampletxt: annotate/reporttxt
