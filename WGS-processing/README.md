@@ -18,7 +18,7 @@ To run the workflow:
 * cd into cwl directory
 
 * run the following
-** arvados-cwl-runner --no-wait --project-uuid YOUR_PROJECT_UUID wgs-processing-wf.cwl ../yml/YOURINPUTS.yml
+  arvados-cwl-runner --no-wait --project-uuid YOUR_PROJECT_UUID wgs-processing-wf.cwl ../yml/YOURINPUTS.yml
 
 About the Demo Data:
 WGS Data used in this demo is public data made available by the Personal Genome Project.  This data is from the PGP-UK (https://www.personalgenomes.org.uk/). 
