@@ -3,20 +3,20 @@ USER root
 MAINTAINER Sarah Wait Zaranek <swz@curii.com>
 
 RUN apt-get update -qy
-RUN apt-get install -qy build-essential wget cmake zlib1g-dev python-pip unzip libbz2-dev liblzma-dev libcurl4-openssl-dev libncurses-dev
+RUN apt-get install -qy build-essential wget cmake zlib1g-dev python-pip unzip libbz2-dev liblzma-dev libcurl4-openssl-dev libncurses-dev autoconf git
 
 RUN mkdir -p /usr/share/man/man1
 RUN apt-get install -qy default-jdk
 
-ADD bwa-0.7.17.tar.bz2 /
-WORKDIR bwa-0.7.17
-RUN make
+# Install SDSL
+RUN cd /tmp && git clone 'https://github.com/simongog/sdsl-lite.git' && cd sdsl-lite && ./install.sh /usr/local
+RUN apt-get remove libhts-dev
 
-ADD samtools-1.10.tar.bz2 /
-WORKDIR /samtools-1.10
-RUN ./configure && make && make install
+# Install htslib 1.10.2
+RUN cd /tmp && wget http://github.com/samtools/htslib/archive/1.10.2.zip && unzip 1.10.2 && cd htslib-1.10.2 && make && make install && cd /tmp && rm -rf htslib-1.10.2 && ldconfig
 
-ADD picard.jar /
+# Install bcftools 1.10.2
+RUN wget http://github.com/samtools/bcftools/archive/1.10.2.zip && unzip 1.10.2 && cd bcftools-1.10.2 && autoheader && autoconf && ./configure && make && make install
 
-WORKDIR /
-
+# Install BWA 07.7.17
+RUN wget https://github.com/lh3/bwa/archive/v0.7.17.zip && unzip v0.7.17 && cd bwa-0.7.17 && make
