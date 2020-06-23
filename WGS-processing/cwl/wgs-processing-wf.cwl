@@ -1,5 +1,6 @@
 cwlVersion: v1.1
 class: Workflow
+label: Main WGS Processing Workflow
 
 requirements:
   - class: SubworkflowFeatureRequirement
