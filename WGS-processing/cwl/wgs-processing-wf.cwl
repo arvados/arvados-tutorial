@@ -59,3 +59,9 @@ steps:
       headhtml: headhtml
       tailhtml: tailhtml
     out: [qc-html,qc-zip,gvcf,report]
+
+s:codeRepository: https://github.com/arvados/arvados-tutorial
+s:license: https://www.gnu.org/licenses/agpl-3.0.en.html
+
+$namespaces:
+  s: https://schema.org/
