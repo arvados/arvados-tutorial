@@ -37,7 +37,6 @@ outputs:
   out-zip:
     type: File[]
     label: Zip files of FASTQ QC report and associated data
-    outputSource: fastqc/out-zip
     outputBinding:
       glob: "*fastqc.zip"
 
