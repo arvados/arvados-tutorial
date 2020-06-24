@@ -1,5 +1,6 @@
 cwlVersion: v1.1
 class: CommandLineTool
+label: Annotating and Filtering VCF
 
 requirements:
   - class: DockerRequirement

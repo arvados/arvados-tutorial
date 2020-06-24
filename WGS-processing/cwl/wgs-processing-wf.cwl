@@ -1,15 +1,19 @@
 cwlVersion: v1.1
 class: Workflow
-label: Main WGS Processing Workflow
+label: WGS processing workflow scattered over samples
 
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: ScatterFeatureRequirement
 
 inputs:
-  fastqdir: Directory 
+  fastqdir:
+    type: Directory 
+    label: Directory of paired FASTQ files
   reference:
     type: File
+    format: edam:format_1929 # FASTA
+    label: Reference genome 
     secondaryFiles:
       - .amb
       - .ann
@@ -18,24 +22,46 @@ inputs:
       - .sa
       - .fai
       - ^.dict
-  sample: string
+  sample: 
+    type: string
+    label: Sample name
   knownsites:
     type: File
+    format: edam:format_3016 # VCF
+    label: VCF of known polymorphic sites for BQSR
     secondaryFiles:
       - .tbi   
-  scattercount: string
-  clinvarvcf: File
-  reportfunc: File
-  headhtml: File
-  tailhtml: File
+  scattercount: 
+    type: string
+    label: Desired split for variant calling
+  clinvarvcf: 
+    type: File
+    format: edam:format_3016 # VCF
+    label: Reference VCF for ClinVar
+  reportfunc: 
+    type: File
+    label: Function used to create HTML report
+  headhtml: 
+    type: File
+    format: edam:format_1964 # HTML
+    label: Header for HTML report
+  tailhtml: 
+    type: File
+    format: edam:format_1964 # HTML
+    label: Footer for HTML report
 
 outputs:
   gvcf:
     type: File[]
     outputSource: bwamem-gatk-report/gvcf
+    format: edam:format_3016 # GVCF
+    label: GVCFs generated from sets of fastqs
+    
   report:
     type: File[]  
     outputSource: bwamem-gatk-report/report
+    format: edam:format_1964 # HTML
+    label: ClinVar variant reports 
 
 steps:
   getfastq:
@@ -65,4 +91,9 @@ s:codeRepository: https://github.com/arvados/arvados-tutorial
 s:license: https://www.gnu.org/licenses/agpl-3.0.en.html
 
 $namespaces:
-  s: https://schema.org/
+ s: https://schema.org/
+ edam: http://edamontology.org/
+
+$schemas:
+ - https://schema.org/version/latest/schema.rdf
+ - http://edamontology.org/EDAM_1.18.owl
