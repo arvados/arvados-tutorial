@@ -1,6 +1,6 @@
 cwlVersion: v1.1
 class: CommandLineTool
-label: Applying base quality score recalibration 
+label: Apply base quality score recalibration 
 
 $namespaces:
   arv: "http://arvados.org/cwl#"

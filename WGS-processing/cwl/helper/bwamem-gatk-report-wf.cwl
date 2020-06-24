@@ -57,18 +57,18 @@ inputs:
 outputs:
   qc-html:
     type: File[]
-    label: FASTQ QC report
+    label: FASTQ QC reports
     format: edam:format_1964 # HTML
     outputSource: fastqc/out-html
   qc-zip:
     type: File[]
-    label: Zip file of FASTQ QC report and associated data
+    label: Zip files of FASTQ QC report and associated data
     outputSource: fastqc/out-zip 
   gvcf:
     type: File
     outputSource: haplotypecaller/gatheredgvcf
     format: edam:format_3016 # GVCF
-    label: GVCF generated from GATK 
+    label: GVCF generated from GATK Haplotype Caller
   report:
     type: File  
     outputSource: generate-report/report
