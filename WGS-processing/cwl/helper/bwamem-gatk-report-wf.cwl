@@ -1,14 +1,23 @@
 cwlVersion: v1.1
 class: Workflow
+label: WGS processing workflow for single sample
 
 requirements:
   - class: SubworkflowFeatureRequirement
 
 inputs:
-  fastq1: File
-  fastq2: File
+  fastq1: 
+    type: File
+    format: edam:format_1930 # FASTQ
+    label: One of set of pair-end FASTQs (R1)
+  fastq2: 
+    type: File
+    format: edam:format_1930 # FASTQ
+    label: One of set of pair-end FASTQs (R2)
   reference:
     type: File
+    format: edam:format_1929 # FASTA
+    label: Reference genome
     secondaryFiles:
       - .amb
       - .ann
@@ -17,30 +26,55 @@ inputs:
       - .sa
       - .fai
       - ^.dict
-  sample: string
+  sample: 
+    type: string
+    label: Sample Name
   knownsites:
     type: File
+    format: edam:format_3016 # VCF
+    label: VCF of known polymorphic sites for BQSR
     secondaryFiles:
       - .tbi   
-  scattercount: string
-  clinvarvcf: File
-  reportfunc: File
-  headhtml: File
-  tailhtml: File
+  scattercount: 
+    type: string
+    label: Desired split for variant calling
+  clinvarvcf:
+    type: File
+    format: edam:format_3016 # VCF
+    label: Reference VCF for ClinVar
+  reportfunc:
+    type: File
+    label: Function used to create HTML report
+  headhtml:
+    type: File
+    format: edam:format_1964 # HTML
+    label: Header for HTML report
+  tailhtml:
+    type: File
+    format: edam:format_1964 # HTML
+    label: Footer for HTML report
 
 outputs:
   qc-html:
     type: File[]
+    label: FASTQ QC report
+    format: edam:format_1964 # HTML
     outputSource: fastqc/out-html
   qc-zip:
     type: File[]
+    label: Zip file of FASTQ QC report and associated data
     outputSource: fastqc/out-zip 
   gvcf:
     type: File
     outputSource: haplotypecaller/gatheredgvcf
+    format: edam:format_3016 # GVCF
+    label: GVCF generated from GATK 
   report:
     type: File  
     outputSource: generate-report/report
+    format: edam:format_1964 # HTML
+    label: ClinVar variant report
+
 steps:
   fastqc:
     run: fastqc.cwl
@@ -91,3 +125,14 @@ steps:
       headhtml: headhtml
       tailhtml: tailhtml
     out: [report] 
+
+s:codeRepository: https://github.com/arvados/arvados-tutorial
+s:license: https://www.gnu.org/licenses/agpl-3.0.en.html
+
+$namespaces:
+ s: https://schema.org/
+ edam: http://edamontology.org/
+
+$schemas:
+ - https://schema.org/version/latest/schema.rdf
+ - http://edamontology.org/EDAM_1.18.owl

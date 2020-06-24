@@ -1,23 +1,28 @@
-$namespaces:
-  arv: "http://arvados.org/cwl#"
-  cwltool: "http://commonwl.org/cwltool#"
 class: ExpressionTool
 cwlVersion: v1.1
-label: Create array of gvcfs to process
+label: Find matching FASTQ pairs 
 requirements:
   InlineJavascriptRequirement: {}
+
 inputs:
   fastqdir:
     type: Directory
-    label: Input directory of fastqs
+    label: Input directory of FASTQs
     loadListing: 'shallow_listing' 
+
 outputs:
   fastq1: 
     type: File[]
+    format: edam:format_1930 # FASTQ
+    label: Half set of pair-end FASTQs (R1)
   fastq2:
     type: File[]
+    format: edam:format_1930 # FASTQ
+    label: Half set of pair-end FASTQs (R2)
   sample:
     type: string[]
+    label: Sample Names
+
 expression: |
   ${function compare(a, b) {
     var baseA = a.basename;
@@ -58,3 +63,17 @@ expression: |
  
     return {"fastq1": fastq1, "fastq2": fastq2, "sample": sample};
   }
+
+
+s:codeRepository: https://github.com/arvados/arvados-tutorial
+s:license: https://www.gnu.org/licenses/agpl-3.0.en.html
+
+$namespaces:
+ s: https://schema.org/
+ edam: http://edamontology.org/
+ arv: "http://arvados.org/cwl#"
+ cwltool: "http://commonwl.org/cwltool#"
+
+$schemas:
+ - https://schema.org/version/latest/schema.rdf
+ - http://edamontology.org/EDAM_1.18.owl

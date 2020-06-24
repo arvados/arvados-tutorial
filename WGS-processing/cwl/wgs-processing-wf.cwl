@@ -22,9 +22,6 @@ inputs:
       - .sa
       - .fai
       - ^.dict
-  sample: 
-    type: string
-    label: Sample name
   knownsites:
     type: File
     format: edam:format_3016 # VCF
@@ -55,7 +52,7 @@ outputs:
     type: File[]
     outputSource: bwamem-gatk-report/gvcf
     format: edam:format_3016 # GVCF
-    label: GVCFs generated from sets of fastqs
+    label: GVCFs generated from GATK 
     
   report:
     type: File[]  
