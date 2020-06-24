@@ -1,10 +1,6 @@
 cwlVersion: v1.1
 class: CommandLineTool
-label: Sorting Bam file
-
-$namespaces:
-  arv: "http://arvados.org/cwl#"
-  cwltool: "http://commonwl.org/cwltool#"
+label: Sorting BAM file
 
 requirements:
   DockerRequirement:
@@ -18,14 +14,26 @@ hints:
   arv:RuntimeConstraints:
     keep_cache: 9216 
     outputDirType: keep_output_dir
+  SoftwareRequirement:
+    packages:
+      Samtools:
+        specs: [ "https://identifiers.org/rrid/RRID:SCR_002105" ]
+        version: [ "1.10" ]
 
 inputs:
-  bam: File
-  sample: string
+  bam: 
+    type: File
+    format: edam:format_2572 # BAM
+    label: Alignments in BAM format
+  sample:
+    type: string
+    label: Sample Name
 
 outputs:
   sortedbam:
     type: File
+    format: edam:format_2572 # BAM
+    label: Sorted BAM 
     outputBinding:
       glob: "*sorted.bam"
 
@@ -40,3 +48,16 @@ arguments:
   - '2G'
   - -o
   - $(inputs.sample).sorted.bam
+
+s:codeRepository: https://github.com/arvados/arvados-tutorial
+s:license: https://www.gnu.org/licenses/agpl-3.0.en.html
+
+$namespaces:
+ s: https://schema.org/
+ edam: http://edamontology.org/
+ arv: "http://arvados.org/cwl#"
+ cwltool: "http://commonwl.org/cwltool#"
+
+$schemas:
+ - https://schema.org/version/latest/schema.rdf
+ - http://edamontology.org/EDAM_1.18.owl
