@@ -5,7 +5,7 @@ This directory contains an Arvados demo showing processing of whole genome seque
 * Variant calling in parallel using GATK Haplotype Caller (https://gatk.broadinstitute.org/hc/en-us)
 * Generation of an HTML report comparing variants against ClinVar archive (https://www.ncbi.nlm.nih.gov/clinvar/)
 
-Workflows are written in CWL v1.1. 
+Workflows are written in CWL v1.1. (https://www.commonwl.org/)
 
 Subdirectories are:
 * cwl - contains CWL code for the demo
@@ -15,9 +15,8 @@ Subdirectories are:
 
 To run the workflow:
 
-* cd into cwl directory
 * run the following:
-  arvados-cwl-runner --no-wait --project-uuid YOUR_PROJECT_UUID wgs-processing-wf.cwl ../yml/YOURINPUTS.yml
+  arvados-cwl-runner --no-wait --project-uuid YOUR_PROJECT_UUID ./cwl/wgs-processing-wf.cwl ./yml/YOURINPUTS.yml
 
 About the Demo Data:
 WGS Data used in this demo is public data made available by the Personal Genome Project.  

@@ -53,7 +53,6 @@ outputs:
     outputSource: bwamem-gatk-report/gvcf
     format: edam:format_3016 # GVCF
     label: GVCFs generated from GATK 
-    
   report:
     type: File[]  
     outputSource: bwamem-gatk-report/report

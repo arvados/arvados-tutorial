@@ -1,5 +1,3 @@
-sample: ERR1726424
-
 reference:
   class: File
   location: keep:a3af04432df3d71d22f2fe8be549ba96+5974/hg38.fa
