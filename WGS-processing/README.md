@@ -9,7 +9,7 @@ Workflows are written in CWL v1.1. (https://www.commonwl.org/)
 
 Subdirectories are:
 * cwl - contains CWL code for the demo
-* yml - contains yml inputs for cwl demo code
+* yml - contains YML inputs for cwl demo code
 * src - contains any src code for the demo
 * docker - contains dockerfiles necessary to re-create any needed docker images 
 
@@ -18,6 +18,7 @@ To run the workflow:
 *  arvados-cwl-runner --no-wait --project-uuid YOUR_PROJECT_UUID ./cwl/wgs-processing-wf.cwl ./yml/YOURINPUTS.yml
 
 About the Demo Data:
+
 WGS Data used in this demo is public data made available by the Personal Genome Project.  
 This set of data is from the PGP-UK (https://www.personalgenomes.org.uk/). 
 
