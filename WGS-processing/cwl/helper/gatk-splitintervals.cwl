@@ -1,10 +1,6 @@
 cwlVersion: v1.1
 class: CommandLineTool
-label: Creating interval files for scattering
-
-$namespaces:
-  arv: "http://arvados.org/cwl#"
-  cwltool: "http://commonwl.org/cwltool#"
+label: Create scatter interval files
 
 requirements:
   DockerRequirement:
@@ -17,10 +13,17 @@ hints:
   ResourceRequirement:
     ramMin: 5000
     coresMin: 2
+  SoftwareRequirement:
+    packages:
+      GATK:
+        specs: [ "https://identifiers.org/rrid/RRID:SCR_001876" ]
+        version: [ "4.1.7" ]
 
 inputs:
   reference:
     type: File
+    format: edam:format_1929 # FASTA
+    label: Reference genome
     secondaryFiles:
       - .amb
       - .ann
@@ -29,12 +32,17 @@ inputs:
       - .sa
       - .fai
       - ^.dict
-  sample: string
-  scattercount: string
- 
+  sample: 
+    type: string
+    label: Sample Name
+  scattercount: 
+    type: string
+    label: Desired split for variant calling
+
 outputs:
   intervalfiles:
     type: File[]
+    label: Scatter intervals files
     outputBinding:
       glob: "intervalfiles/*.interval_list"
 
@@ -52,3 +60,16 @@ arguments:
     valueFrom: "BALANCING_WITHOUT_INTERVAL_SUBDIVISION"
   - prefix: "-O"
     valueFrom: "intervalfiles"
+
+s:codeRepository: https://github.com/arvados/arvados-tutorial
+s:license: https://www.gnu.org/licenses/agpl-3.0.en.html
+
+$namespaces:
+ s: https://schema.org/
+ edam: http://edamontology.org/
+ arv: "http://arvados.org/cwl#"
+ cwltool: "http://commonwl.org/cwltool#"
+
+$schemas:
+ - https://schema.org/version/latest/schema.rdf
+ - http://edamontology.org/EDAM_1.18.owl
