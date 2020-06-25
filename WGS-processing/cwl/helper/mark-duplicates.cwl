@@ -1,6 +1,6 @@
 cwlVersion: v1.1
 class: CommandLineTool
-label: Marking Duplicates using GATK (Picard) 
+label: Mark duplicates using GATK (Picard) 
 
 requirements:
   DockerRequirement:

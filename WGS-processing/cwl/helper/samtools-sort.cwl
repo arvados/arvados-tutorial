@@ -1,6 +1,6 @@
 cwlVersion: v1.1
 class: CommandLineTool
-label: Sorting BAM file
+label: Sort BAM 
 
 requirements:
   DockerRequirement:
