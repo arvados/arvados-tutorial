@@ -1,8 +1,6 @@
-$namespaces:
-  arv: "http://arvados.org/cwl#"
-  cwltool: "http://commonwl.org/cwltool#"
 cwlVersion: v1.1
 class: Workflow
+label: Variant calling workflow scattered over interval splits 
 
 requirements:
   - class: SubworkflowFeatureRequirement
@@ -11,10 +9,14 @@ requirements:
 inputs:
   bam:
     type: File
+    format: edam:format_2572 # BAM
+    label: Indexed sorted BAM with labeled duplicates
     secondaryFiles:
       - .bai
   reference:
     type: File
+    format: edam:format_1929 # FASTA
+    label: Reference genome
     secondaryFiles:
       - .amb
       - .ann
@@ -23,16 +25,24 @@ inputs:
       - .sa
       - .fai
       - ^.dict
-  sample: string
+  sample: 
+    type: string
+    label: Sample Name
   knownsites1:
     type: File
+    format: edam:format_3016 # VCF
+    label: VCF of known polymorphic sites for BQSR
     secondaryFiles:
       - .tbi
-  scattercount: string
+  scattercount: 
+    type: string
+    label: Desired split for variant calling
 
 outputs:
   gatheredgvcf:
     type: File
+    format: edam:format_3016 # GVCF
+    label: GVCF generated from GATK Haplotype Caller
     secondaryFiles: 
       - .tbi
     outputSource: merge-GVCFs/gatheredgvcf
@@ -64,3 +74,14 @@ steps:
       sample: sample
       reference: reference
     out: [gatheredgvcf] 
+
+s:codeRepository: https://github.com/arvados/arvados-tutorial
+s:license: https://www.gnu.org/licenses/agpl-3.0.en.html
+
+$namespaces:
+ s: https://schema.org/
+ edam: http://edamontology.org/
+
+$schemas:
+ - https://schema.org/version/latest/schema.rdf
+ - http://edamontology.org/EDAM_1.18.owl
