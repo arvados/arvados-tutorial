@@ -15,9 +15,13 @@ Subdirectories are:
 
 To run the workflow:
 
-* run the following:
-  arvados-cwl-runner --no-wait --project-uuid YOUR_PROJECT_UUID ./cwl/wgs-processing-wf.cwl ./yml/YOURINPUTS.yml
+*  arvados-cwl-runner --no-wait --project-uuid YOUR_PROJECT_UUID ./cwl/wgs-processing-wf.cwl ./yml/YOURINPUTS.yml
 
 About the Demo Data:
 WGS Data used in this demo is public data made available by the Personal Genome Project.  
 This set of data is from the PGP-UK (https://www.personalgenomes.org.uk/). 
+
+Questions about Arvados?
+
+https://arvados.org/
+https://gitter.im/arvados/community
