@@ -1,5 +1,6 @@
 cwlVersion: v1.1
 class: Workflow
+label: Variant calling workflow for single interval 
 
 requirements:
   - class: SubworkflowFeatureRequirement
@@ -66,3 +67,14 @@ steps:
       reference: reference
       sample: sample
     out: [filteredgvcf]
+
+s:codeRepository: https://github.com/arvados/arvados-tutorial
+s:license: https://www.gnu.org/licenses/agpl-3.0.en.html
+
+$namespaces:
+ s: https://schema.org/
+ edam: http://edamontology.org/
+
+$schemas:
+ - https://schema.org/version/latest/schema.rdf
+ - http://edamontology.org/EDAM_1.18.owl
