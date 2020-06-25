@@ -21,7 +21,6 @@ About the Demo Data:
 WGS Data used in this demo is public data made available by the Personal Genome Project.  
 This set of data is from the PGP-UK (https://www.personalgenomes.org.uk/). 
 
-Questions about Arvados?
-
-https://arvados.org/
-https://gitter.im/arvados/community
+Have questions about Arvados?
+* https://arvados.org/
+* https://gitter.im/arvados/community
