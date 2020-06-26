@@ -84,6 +84,8 @@ s:license: https://www.gnu.org/licenses/agpl-3.0.en.html
 $namespaces:
  s: https://schema.org/
  edam: http://edamontology.org/
+ arv: "http://arvados.org/cwl#"
+ cwltool: "http://commonwl.org/cwltool#"
 
 $schemas:
  - https://schema.org/version/latest/schema.rdf
