@@ -8,10 +8,14 @@ requirements:
 inputs:
   bam:
     type: File
+    format: edam:format_2572 # BAM
+    label: Indexed sorted BAM with labeled duplicates
     secondaryFiles:
       - .bai
   reference:
     type: File
+    format: edam:format_1929 # FASTA
+    label: Reference genome
     secondaryFiles:
       - .amb
       - .ann
@@ -20,17 +24,24 @@ inputs:
       - .sa
       - .fai
       - ^.dict
-  sample: string
+  sample: 
+    type: string
+    label: Sample Name
   knownsites1:
     type: File
+    format: edam:format_3016 # VCF
+    label: VCF of known polymorphic sites for BQSR
     secondaryFiles:
       - .tbi
   intervallist:
     type: File
+    label: Scatter intervals file 
 
 outputs:
   gvcf:
     type: File
+    format: edam:format_3016 # GVCF
+    label: single interval filtered GVCF
     outputSource: selectvariants/filteredgvcf
 
 steps:
