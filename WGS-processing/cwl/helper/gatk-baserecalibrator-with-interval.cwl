@@ -57,7 +57,7 @@ inputs:
 outputs:
   recaltable:
     type: File
-    label: Recalibration table
+    label: Recalibration table for given interval
     outputBinding:
       glob: "*.table"
 
