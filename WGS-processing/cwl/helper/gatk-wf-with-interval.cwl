@@ -1,6 +1,6 @@
 cwlVersion: v1.1
 class: Workflow
-label: Variant calling workflow for single interval 
+label: Variant calling workflow for given interval 
 
 requirements:
   - class: SubworkflowFeatureRequirement
@@ -41,7 +41,7 @@ outputs:
   gvcf:
     type: File
     format: edam:format_3016 # GVCF
-    label: single interval filtered GVCF
+    label: Given interval filtered GVCF
     outputSource: selectvariants/filteredgvcf
 
 steps:

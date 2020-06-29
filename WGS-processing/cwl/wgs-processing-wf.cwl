@@ -40,11 +40,11 @@ inputs:
     label: Function used to create HTML report
   headhtml: 
     type: File
-    format: edam:format_1964 # HTML
+    format: edam:format_2331# HTML
     label: Header for HTML report
   tailhtml: 
     type: File
-    format: edam:format_1964 # HTML
+    format: edam:format_2331 # HTML
     label: Footer for HTML report
 
 outputs:

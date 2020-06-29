@@ -12,3 +12,6 @@ knownsites1:
   class: File
   location: keep:7c0b13bda857fa15d88c1039182f69d5+8052/Homo_sapiens_assembly38.known_indels.vcf.gz
 
+intervallist:
+  class: File
+  location: keep:4d4947f6637f0acec32580e09d991967+815/0000-scattered.interval_list

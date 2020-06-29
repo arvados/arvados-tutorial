@@ -1,5 +1,6 @@
 cwlVersion: v1.1
 class: Workflow
+label: Report generation workflow
 
 inputs:
   gvcf: 

@@ -1,6 +1,6 @@
 cwlVersion: v1.1
 class: Workflow
-label: Variant calling workflow scattered over interval splits 
+label: Scattered variant calling workflow  
 
 requirements:
   - class: SubworkflowFeatureRequirement
