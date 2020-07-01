@@ -11,3 +11,7 @@ sample: ERR1726424
 recaltable: 
   class: File
   location: keep:fdce030a5036edb9b821222e316ee706+143/ERR1726424_recal_data.table
+
+intervallist:
+  class: File
+  location: keep:4d4947f6637f0acec32580e09d991967+815/0000-scattered.interval_list
