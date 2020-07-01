@@ -4,6 +4,22 @@ import pandas as pd
 import io
 import argparse
 
+def tablegeneration(reportdata,sectionlabel):
+    labelhtml = '<h2>'+sectionlabel+'</h2>'
+    # creating html table from dataframe
+    reportdatasub = reportdata[["Variant ID", "Allele ID", "Clinical Significance","Disease Name", "Frequency EXAC", "Frequency 1000 Genomes Project","Zygosity","URL"]]
+
+    reportdatasub['Disease Name'] = reportdatasub['Disease Name'].str.replace('|','<br/>')
+    str_io = io.StringIO()
+    reportdatasub.to_html(buf=str_io, classes='table table-bordered',index_names=False,index=False)
+    html_str = str_io.getvalue()
+    html_str_encoded = unicode(html_str).encode('utf8')
+    html_str_encoded = html_str_encoded.replace('&lt;','<')
+    html_str_encoded = html_str_encoded.replace('&gt;','>')
+    html_str_encoded = html_str_encoded.replace('_',' ')
+    section_html = labelhtml+html_str_encoded
+    return section_html
+
 def generatereport():
 
     parser = argparse.ArgumentParser()
@@ -28,19 +44,9 @@ def generatereport():
     # reading data into dataframe
     headerlist = ["Variant ID", "Chromosome", "Position", "Ref","Alt","Allele ID", "Clinical Significance","Disease Name","Frequency GO-ESP", "Frequency EXAC", "Frequency 1000 Genomes Project","GT"]
     reportdata = pd.read_csv(filename,header=0,names=headerlist,sep='\t')
-    reportdata['Zygosity']="."
-
+    
     # defining zygosity
-    idxHOM1 = reportdata.GT=='1|1' 
-    idxHOM2 = reportdata.GT=='1/1'
-    idxHET1 = reportdata.GT=='1|0'
-    idxHET2 = reportdata.GT=='1/0'
-    idxHET3 = reportdata.GT=='0|1'
-    idxHET4 = reportdata.GT=='0/1'
-    idxHOM = idxHOM1 | idxHOM2
-    idxHET = idxHET1 | idxHET2 | idxHET3 | idxHET4
-    reportdata.Zygosity[idxHOM]='HOM'
-    reportdata.Zygosity[idxHET]='HET'
+    reportdata['Zygosity'] = reportdata.GT
 
     # creating url from variant ID
     clinvarURL =  "https://www.ncbi.nlm.nih.gov/clinvar/variation/" 
@@ -48,25 +54,40 @@ def generatereport():
     reportdata.to_json('test.json',orient='records')
     str_io = io.StringIO()
 
-    # creating html table from dataframe
-    reportdatasub = reportdata[["Variant ID", "Allele ID", "Clinical Significance","Disease Name", "Frequency EXAC", "Frequency 1000 Genomes Project","Zygosity","URL"]]
-    reportdatasub.to_html(buf=str_io, classes='table table-bordered',index_names=False,index=False)
-    html_str = str_io.getvalue()
-    html_str_encoded = unicode(html_str).encode('utf8')
-    html_str_encoded = html_str_encoded.replace('&lt;','<')
-    html_str_encoded = html_str_encoded.replace('&gt;','>')
-    html_str_encoded = html_str_encoded.replace('|','<br/>')
+    idxP = reportdata['Clinical Significance'].str.contains('Pathogenic')
+    idxLP = reportdata['Clinical Significance'].str.contains('Likely_pathogenic')
+    idxD = reportdata['Clinical Significance'].str.contains('drug_response') 
+    idxPro = reportdata['Clinical Significance'].str.contains('protective')
+    idxRisk = reportdata['Clinical Significance'].str.contains('risk_factor')
+    idxA = reportdata['Clinical Significance'].str.contains('Affects')
+    idxB = reportdata['Clinical Significance'].str.contains('Benign')
+    idxLB = reportdata['Clinical Significance'].str.contains('Likely_benign') 
+    idxAs = reportdata['Clinical Significance'].str.contains('association')
 
+    idxOther = ~(idxAs | idxLB | idxB | idxA | idxRisk | idxPro | idxD | idxP | idxLP)
+ 
     html_file = open(headfile, 'r')
     source_code_head = html_file.read() 
+    source_code_head = source_code_head.replace('ClinVar Report','ClinVar Report For ' + samplename)
     html_file.close()
 
     html_file = open(tailfile, 'r')
     source_code_tail = html_file.read()
     html_file.close()
+ 
+    pathogenic_html = tablegeneration(reportdata[idxP],'Pathogenic')
+    likely_pathogenic_html = tablegeneration(reportdata[idxLP],'Likely Pathogenic') 
+    drug_html = tablegeneration(reportdata[idxD],'Drug Response')
+    protective_html = tablegeneration(reportdata[idxPro],'Protective')
+    risk_html = tablegeneration(reportdata[idxRisk],'Risk Factor')
+    affects_html = tablegeneration(reportdata[idxA],'Affects')
+    association_html = tablegeneration(reportdata[idxAs],'Association')
+    benign_html = tablegeneration(reportdata[idxB],'Benign')
+    likely_benign_html = tablegeneration(reportdata[idxLB],'Likely Benign')
+    other_html = tablegeneration(reportdata[idxOther],'Other') 
 
     # combine html table with head and tail html for total report
-    total_html = source_code_head + html_str_encoded + source_code_tail
+    total_html = source_code_head + pathogenic_html + likely_pathogenic_html + drug_html + protective_html + risk_html + affects_html + association_html + other_html + benign_html + likely_benign_html + source_code_tail
   
     # write out report html
     f = open(samplename+'.html','wb')
