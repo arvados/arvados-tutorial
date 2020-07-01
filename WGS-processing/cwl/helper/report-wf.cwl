@@ -51,6 +51,7 @@ steps:
     in:
       reportfunc: reportfunc
       sampletxt: annotate/reporttxt
+      sample: sample
       headhtml: headhtml
       tailhtml: tailhtml
     out: [report]

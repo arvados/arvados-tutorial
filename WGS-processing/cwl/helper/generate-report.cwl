@@ -1,5 +1,6 @@
 cwlVersion: v1.1
 class: CommandLineTool
+label: Generate ClinVar Report
 
 requirements:
   DockerRequirement:
@@ -13,16 +14,27 @@ hints:
 inputs:
   reportfunc:
     type: File
+    label: Function used to create HTML report
   sampletxt:
     type: File
+    label: Annotated text from VCF
+  sample:
+    type: string
+    label: Sample Name
   headhtml:
     type: File
+    format: edam:format_2331# HTML
+    label: Header for HTML report
   tailhtml:
     type: File
+    format: edam:format_2331 # HTML
+    label: Footer for HTML report
 
 outputs:
   report:
     type: File
+    format: edam:format_1964 # HTML
+    label: ClinVar variant report
     outputBinding:
       glob: "*html"
 
@@ -31,6 +43,14 @@ baseCommand: python
 arguments:
   - $(inputs.reportfunc)
   - $(inputs.sampletxt)
-  - $(inputs.sampletxt.basename)
+  - $(inputs.sample)
   - $(inputs.headhtml)
   - $(inputs.tailhtml)
+
+$namespaces:
+ s: https://schema.org/
+ edam: http://edamontology.org/
+
+$schemas:
+ - https://schema.org/version/latest/schema.rdf
+ - http://edamontology.org/EDAM_1.18.owl
