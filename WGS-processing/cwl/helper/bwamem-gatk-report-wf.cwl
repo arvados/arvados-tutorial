@@ -113,7 +113,7 @@ steps:
       bam: samtools-index/indexedbam
       sample: sample
       scattercount: scattercount
-      knownsites1: knownsites
+      knownsites: knownsites
     out: [gatheredgvcf]
   generate-report:
     run: report-wf.cwl
