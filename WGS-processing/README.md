@@ -25,3 +25,8 @@ This set of data is from the PGP-UK (https://www.personalgenomes.org.uk/).
 Have questions about Arvados?
 * https://arvados.org/
 * https://gitter.im/arvados/community
+
+Have questions about CWL?
+* https://www.commonwl.org/
+* https://cwl.discourse.group/
+* https://gitter.im/common-workflow-language/common-workflow-language
