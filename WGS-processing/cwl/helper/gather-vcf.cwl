@@ -1,6 +1,7 @@
 cwlVersion: v1.1
 class: CommandLineTool
-label: Gathering vcf using Picard 
+label: Gather GVCF using Picard 
+
 $namespaces:
   arv: "http://arvados.org/cwl#"
   cwltool: "http://commonwl.org/cwltool#"
@@ -21,11 +22,15 @@ hints:
 inputs:
   gvcfdir: 
     type: Directory
-    label: Input directory of gvcfs
+    label: Input directory of GVCFs
     loadListing: 'shallow_listing'
-  sample: string
+  sample: 
+    type: string
+    label: Sample Name
   reference:
     type: File
+    format: edam:format_1929 # FASTA
+    label: Reference genome
     secondaryFiles:
       - .amb
       - .ann
@@ -37,6 +42,8 @@ inputs:
 outputs:
   gatheredgvcf:
     type: File
+    format: edam:format_3016 # GVCF
+    label: Gathered GVCF 
     secondaryFiles:
       - .tbi
     outputBinding:
@@ -82,3 +89,16 @@ arguments:
       }
   - prefix: "-O"
     valueFrom: $(inputs.sample).g.vcf.gz
+
+s:codeRepository: https://github.com/arvados/arvados-tutorial
+s:license: https://www.gnu.org/licenses/agpl-3.0.en.html
+
+$namespaces:
+ s: https://schema.org/
+ edam: http://edamontology.org/
+ arv: "http://arvados.org/cwl#"
+ cwltool: "http://commonwl.org/cwltool#"
+
+$schemas:
+ - https://schema.org/version/latest/schema.rdf
+ - http://edamontology.org/EDAM_1.18.owl

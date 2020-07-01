@@ -42,10 +42,10 @@ outputs:
   gatheredgvcf:
     type: File
     format: edam:format_3016 # GVCF
-    label: GVCF generated from GATK Haplotype Caller
+    label: Gathered GVCF 
     secondaryFiles: 
       - .tbi
-    outputSource: merge-GVCFs/gatheredgvcf
+    outputSource: gather-GVCFs/gatheredgvcf
     
 steps:
   splitintervals:
@@ -67,7 +67,7 @@ steps:
       intervallist: splitintervals/intervalfiles
     out: [gvcf]
 
-  merge-GVCFs:
+  gather-GVCFs:
     run: gather-array-vcf.cwl
     in:
       gvcfarray: recal-haplotypecaller/gvcf
