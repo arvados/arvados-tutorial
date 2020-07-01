@@ -1,6 +1,6 @@
 cwlVersion: v1.1
 class: CommandLineTool
-label: Annotating and Filtering VCF
+label: Annotate and filter VCF
 
 requirements:
   - class: DockerRequirement
@@ -19,6 +19,7 @@ inputs:
     type: File
   clinvarvcf:
     type: File
+
 outputs:
   reporttxt: stdout
 

@@ -7,7 +7,7 @@ inputs:
     type: File
     format: edam:format_3016 # GVCF
     label: Gathered GVCF
-  samplename:
+  sample:
     type: string
     label: Sample Name
   clinvarvcf:
@@ -38,16 +38,14 @@ steps:
     run: gvcf-to-vcf.cwl
     in:
       gvcf: gvcf
-      samplename: samplename
+      sample: sample
     out: [vcf]
-
   annotate:
     run: annotate-vcf.cwl
     in:
       vcf: gvcf-to-vcf/vcf
       clinvarvcf: clinvarvcf
     out: [reporttxt]
-
   generate-report:
     run: generate-report.cwl
     in:
