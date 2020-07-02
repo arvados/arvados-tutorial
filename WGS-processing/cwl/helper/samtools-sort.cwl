@@ -1,6 +1,6 @@
 cwlVersion: v1.1
 class: CommandLineTool
-label: Sort BAM 
+label: Sort BAM
 
 requirements:
   DockerRequirement:
@@ -12,7 +12,7 @@ requirements:
 
 hints:
   arv:RuntimeConstraints:
-    keep_cache: 9216 
+    keep_cache: 9216
     outputDirType: keep_output_dir
   SoftwareRequirement:
     packages:
@@ -21,7 +21,7 @@ hints:
         version: [ "1.10" ]
 
 inputs:
-  bam: 
+  bam:
     type: File
     format: edam:format_2572 # BAM
     label: Alignments in BAM format
@@ -33,7 +33,7 @@ outputs:
   sortedbam:
     type: File
     format: edam:format_2572 # BAM
-    label: Sorted BAM 
+    label: Sorted BAM
     outputBinding:
       glob: "*sorted.bam"
 
@@ -58,6 +58,6 @@ $namespaces:
  arv: "http://arvados.org/cwl#"
  cwltool: "http://commonwl.org/cwltool#"
 
-$schemas:
- - https://schema.org/version/latest/schema.rdf
- - http://edamontology.org/EDAM_1.18.owl
+#$schemas:
+# - https://schema.org/version/latest/schema.rdf
+# - http://edamontology.org/EDAM_1.18.owl

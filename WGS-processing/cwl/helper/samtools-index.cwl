@@ -19,7 +19,7 @@ hints:
         version: [ "1.10" ]
 
 inputs:
-  bam: 
+  bam:
     type: File
     format: edam:format_2572 # BAM
     label: Sorted BAM with labeled duplicates
@@ -32,7 +32,7 @@ outputs:
     outputBinding:
       glob: "*bam"
     secondaryFiles:
-      - .bai 
+      - .bai
 
 baseCommand: samtools
 
@@ -49,6 +49,6 @@ $namespaces:
  arv: "http://arvados.org/cwl#"
  cwltool: "http://commonwl.org/cwltool#"
 
-$schemas:
- - https://schema.org/version/latest/schema.rdf
- - http://edamontology.org/EDAM_1.18.owl
+#$schemas:
+# - https://schema.org/version/latest/schema.rdf
+# - http://edamontology.org/EDAM_1.18.owl

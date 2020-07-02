@@ -1,6 +1,6 @@
 cwlVersion: v1.1
 class: CommandLineTool
-label: Mark duplicates using GATK (Picard) 
+label: Mark duplicates using GATK (Picard)
 
 requirements:
   DockerRequirement:
@@ -9,7 +9,7 @@ requirements:
 hints:
   ResourceRequirement:
     ramMin: 20000
-    coresMin: 4    
+    coresMin: 4
   arv:RuntimeConstraints:
     outputDirType: keep_output_dir
   SoftwareRequirement:
@@ -22,7 +22,7 @@ inputs:
   bam:
     type: File
     format: edam:format_2572 # BAM
-    label: Sorted BAM 
+    label: Sorted BAM
 
 outputs:
   dupbam:
@@ -41,7 +41,7 @@ baseCommand: /gatk/gatk
 
 arguments:
   - "--java-options"
-  - "-Xmx8G" 
+  - "-Xmx8G"
   - MarkDuplicates
   - prefix: "-I"
     valueFrom: $(inputs.bam.path)
@@ -59,6 +59,6 @@ $namespaces:
  arv: "http://arvados.org/cwl#"
  cwltool: "http://commonwl.org/cwltool#"
 
-$schemas:
- - https://schema.org/version/latest/schema.rdf
- - http://edamontology.org/EDAM_1.18.owl 
+#$schemas:
+# - https://schema.org/version/latest/schema.rdf
+# - http://edamontology.org/EDAM_1.18.owl

@@ -1,6 +1,6 @@
 cwlVersion: v1.1
 class: CommandLineTool
-label: Convert GVCF to VCF 
+label: Convert GVCF to VCF
 
 requirements:
   - class: DockerRequirement
@@ -39,7 +39,7 @@ outputs:
 
 arguments:
   - bcftools
-  - view 
+  - view
   - prefix: "--min-ac"
     valueFrom: "1"
   - $(inputs.gvcf.path)
@@ -62,6 +62,6 @@ $namespaces:
  s: https://schema.org/
  edam: http://edamontology.org/
 
-$schemas:
- - https://schema.org/version/latest/schema.rdf
- - http://edamontology.org/EDAM_1.18.owl
+#$schemas:
+# - https://schema.org/version/latest/schema.rdf
+# - http://edamontology.org/EDAM_1.18.owl

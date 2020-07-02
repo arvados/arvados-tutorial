@@ -3,7 +3,7 @@ class: Workflow
 label: Report generation workflow
 
 inputs:
-  gvcf: 
+  gvcf:
     type: File
     format: edam:format_3016 # GVCF
     label: Gathered GVCF
@@ -21,7 +21,7 @@ inputs:
     type: File
     format: edam:format_2331# HTML
     label: Header for HTML report
-  tailhtml:   
+  tailhtml:
     type: File
     format: edam:format_2331 # HTML
     label: Footer for HTML report

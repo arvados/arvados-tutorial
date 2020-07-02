@@ -1,6 +1,6 @@
 cwlVersion: v1.1
 class: Workflow
-label: Scattered variant calling workflow  
+label: Scattered variant calling workflow
 
 requirements:
   - class: SubworkflowFeatureRequirement
@@ -25,7 +25,7 @@ inputs:
       - .sa
       - .fai
       - ^.dict
-  sample: 
+  sample:
     type: string
     label: Sample Name
   knownsites:
@@ -34,7 +34,7 @@ inputs:
     label: VCF of known polymorphic sites for BQSR
     secondaryFiles:
       - .tbi
-  scattercount: 
+  scattercount:
     type: string
     label: Desired split for variant calling
 
@@ -42,8 +42,8 @@ outputs:
   gatheredgvcf:
     type: File
     format: edam:format_3016 # GVCF
-    label: Gathered GVCF 
-    secondaryFiles: 
+    label: Gathered GVCF
+    secondaryFiles:
       - .tbi
     outputSource: gather-GVCFs/gatheredgvcf
     
@@ -56,7 +56,7 @@ steps:
       scattercount: scattercount
     out: [intervalfiles]
       
-  recal-haplotypecaller: 
+  recal-haplotypecaller:
     run: gatk-wf-with-interval.cwl
     scatter: intervallist
     in:
@@ -73,7 +73,7 @@ steps:
       gvcfarray: recal-haplotypecaller/gvcf
       sample: sample
       reference: reference
-    out: [gatheredgvcf] 
+    out: [gatheredgvcf]
 
 s:codeRepository: https://github.com/arvados/arvados-tutorial
 s:license: https://www.gnu.org/licenses/agpl-3.0.en.html
@@ -82,6 +82,6 @@ $namespaces:
  s: https://schema.org/
  edam: http://edamontology.org/
 
-$schemas:
- - https://schema.org/version/latest/schema.rdf
- - http://edamontology.org/EDAM_1.18.owl
+#$schemas:
+# - https://schema.org/version/latest/schema.rdf
+# - http://edamontology.org/EDAM_1.18.owl
