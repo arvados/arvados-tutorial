@@ -4,11 +4,7 @@ label: Quality check on FASTQ
 
 requirements:
   DockerRequirement:
-    dockerPull: curii/fastqc
-  InitialWorkDirRequirement:
-    listing:
-      - $(inputs.fastq1)
-      - $(inputs.fastq2)
+    dockerPull: biocontainers/fastqc:v0.11.9_cv6
 
 hints:
   SoftwareRequirement:
@@ -40,12 +36,11 @@ outputs:
     outputBinding:
       glob: "*fastqc.zip"
 
-baseCommand: perl
+baseCommand: fastqc 
 
 arguments:
-  - /FastQC/fastqc
-  - $(inputs.fastq1.basename)
-  - $(inputs.fastq2.basename)
+  - $(inputs.fastq1.path)
+  - $(inputs.fastq2.path)
 
 s:codeRepository: https://github.com/arvados/arvados-tutorial
 s:license: https://www.gnu.org/licenses/agpl-3.0.en.html
@@ -54,6 +49,6 @@ $namespaces:
  s: https://schema.org/
  edam: http://edamontology.org/
 
-$schemas:
- - https://schema.org/version/latest/schema.rdf
- - http://edamontology.org/EDAM_1.18.owl
+#$schemas:
+# - https://schema.org/version/latest/schema.rdf
+# - http://edamontology.org/EDAM_1.18.owl
