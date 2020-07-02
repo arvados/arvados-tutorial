@@ -1,6 +1,6 @@
 cwlVersion: v1.1
 class: Workflow
-label: Variant calling workflow for given interval 
+label: Variant calling workflow for given interval
 
 requirements:
   - class: SubworkflowFeatureRequirement
@@ -24,7 +24,7 @@ inputs:
       - .sa
       - .fai
       - ^.dict
-  sample: 
+  sample:
     type: string
     label: Sample Name
   knownsites:
@@ -35,7 +35,7 @@ inputs:
       - .tbi
   intervallist:
     type: File
-    label: Scatter intervals file 
+    label: Scatter intervals file
 
 outputs:
   gvcf:
@@ -56,7 +56,7 @@ steps:
     out: [recaltable]
   applyBQSR:
     run: gatk-applyBSQR-with-interval.cwl
-    in: 
+    in:
       reference: reference
       bam: bam
       sample: sample
@@ -73,7 +73,7 @@ steps:
     out: [gvcf]
   selectvariants:
     run: gatk-selectvariants.cwl
-    in: 
+    in:
       gvcf: haplotypecaller/gvcf
       reference: reference
       sample: sample
@@ -86,6 +86,6 @@ $namespaces:
  s: https://schema.org/
  edam: http://edamontology.org/
 
-$schemas:
- - https://schema.org/version/latest/schema.rdf
- - http://edamontology.org/EDAM_1.18.owl
+#$schemas:
+# - https://schema.org/version/latest/schema.rdf
+# - http://edamontology.org/EDAM_1.18.owl

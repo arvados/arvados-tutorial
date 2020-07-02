@@ -9,7 +9,7 @@ requirements:
 hints:
   ResourceRequirement:
     ramMin: 10000
-    coresMin: 4    
+    coresMin: 4
 
 inputs:
   reportfunc:
@@ -51,6 +51,6 @@ $namespaces:
  s: https://schema.org/
  edam: http://edamontology.org/
 
-$schemas:
- - https://schema.org/version/latest/schema.rdf
- - http://edamontology.org/EDAM_1.18.owl
+#$schemas:
+# - https://schema.org/version/latest/schema.rdf
+# - http://edamontology.org/EDAM_1.18.owl

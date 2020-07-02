@@ -1,6 +1,6 @@
 class: ExpressionTool
 cwlVersion: v1.1
-label: Find matching FASTQ pairs 
+label: Find matching FASTQ pairs
 requirements:
   InlineJavascriptRequirement: {}
 
@@ -8,7 +8,7 @@ inputs:
   fastqdir:
     type: Directory
     label: Input directory of FASTQs
-    loadListing: 'shallow_listing' 
+    loadListing: 'shallow_listing'
 
 outputs:
   fastq1: 
@@ -74,6 +74,6 @@ $namespaces:
  arv: "http://arvados.org/cwl#"
  cwltool: "http://commonwl.org/cwltool#"
 
-$schemas:
- - https://schema.org/version/latest/schema.rdf
- - http://edamontology.org/EDAM_1.18.owl
+#$schemas:
+# - https://schema.org/version/latest/schema.rdf
+# - http://edamontology.org/EDAM_1.18.owl
