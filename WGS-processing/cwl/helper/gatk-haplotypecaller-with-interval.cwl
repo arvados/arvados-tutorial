@@ -9,10 +9,10 @@ requirements:
 hints:
   arv:RuntimeConstraints:
     outputDirType: keep_output_dir
-    keep_cache: 1024 
+    keep_cache: 1024
   ResourceRequirement:
     ramMin: 3500
-    coresMin: 2   
+    coresMin: 2
   SoftwareRequirement:
     packages:
       GATK:
@@ -41,7 +41,7 @@ inputs:
   intervallist:
     type: File
     label: Scatter intervals file
-  sample: 
+  sample:
     type: string
     label: Sample Name
 
@@ -87,6 +87,6 @@ $namespaces:
  arv: "http://arvados.org/cwl#"
  cwltool: "http://commonwl.org/cwltool#"
 
-$schemas:
- - https://schema.org/version/latest/schema.rdf
- - http://edamontology.org/EDAM_1.18.owl
+#$schemas:
+# - https://schema.org/version/latest/schema.rdf
+# - http://edamontology.org/EDAM_1.18.owl

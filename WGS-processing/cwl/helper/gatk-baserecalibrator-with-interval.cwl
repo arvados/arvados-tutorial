@@ -1,6 +1,6 @@
 cwlVersion: v1.1
 class: CommandLineTool
-label: Generate recalibration table for BQSR 
+label: Generate recalibration table for BQSR
 
 requirements:
   DockerRequirement:
@@ -44,7 +44,7 @@ inputs:
   sample:
     type: string
     label: Sample Name
-  knownsites: 
+  knownsites:
     type: File
     format: edam:format_3016 # VCF
     label: VCF of known polymorphic sites for BQSR
@@ -87,6 +87,6 @@ $namespaces:
  arv: "http://arvados.org/cwl#"
  cwltool: "http://commonwl.org/cwltool#"
 
-$schemas:
- - https://schema.org/version/latest/schema.rdf
- - http://edamontology.org/EDAM_1.18.owl
+#$schemas:
+# - https://schema.org/version/latest/schema.rdf
+# - http://edamontology.org/EDAM_1.18.owl

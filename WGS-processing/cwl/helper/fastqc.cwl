@@ -14,11 +14,11 @@ hints:
         version: [ "0.11.9" ]
 
 inputs:
-  fastq1: 
+  fastq1:
     type: File
     format: edam:format_1930 # FASTQ
     label: One of set of pair-end FASTQs (R1)
-  fastq2: 
+  fastq2:
     type: File
     format: edam:format_1930 # FASTQ
     label: One of set of pair-end FASTQs (R2)
@@ -36,7 +36,7 @@ outputs:
     outputBinding:
       glob: "*fastqc.zip"
 
-baseCommand: fastqc 
+baseCommand: fastqc
 
 arguments:
   - $(inputs.fastq1.path)

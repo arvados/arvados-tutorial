@@ -41,10 +41,10 @@ inputs:
       - .sa
       - .fai
       - ^.dict
-  sample: 
+  sample:
     type: string
     label: Sample Name
-  recaltable: 
+  recaltable:
     type: File
     label: Recalibration table
   intervallist:
@@ -56,7 +56,7 @@ outputs:
     type: File
     format: edam:format_2572 # BAM
     label: Recalibrated BAM for given interval
-    secondaryFiles: 
+    secondaryFiles:
       - .bai
     outputBinding:
       glob: "*nodups_BQSR.bam"
@@ -87,6 +87,6 @@ $namespaces:
  arv: "http://arvados.org/cwl#"
  cwltool: "http://commonwl.org/cwltool#"
 
-$schemas:
- - https://schema.org/version/latest/schema.rdf
- - http://edamontology.org/EDAM_1.18.owl
+#$schemas:
+# - https://schema.org/version/latest/schema.rdf
+# - http://edamontology.org/EDAM_1.18.owl

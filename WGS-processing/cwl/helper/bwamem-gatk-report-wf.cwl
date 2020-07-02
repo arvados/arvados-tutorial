@@ -6,11 +6,11 @@ requirements:
   - class: SubworkflowFeatureRequirement
 
 inputs:
-  fastq1: 
+  fastq1:
     type: File
     format: edam:format_1930 # FASTQ
     label: One of set of pair-end FASTQs (R1)
-  fastq2: 
+  fastq2:
     type: File
     format: edam:format_1930 # FASTQ
     label: One of set of pair-end FASTQs (R2)
@@ -91,7 +91,7 @@ steps:
       sample: sample
     out: [bam]
   samtools-sort:
-    run: samtools-sort.cwl 
+    run: samtools-sort.cwl
     in:
       bam: bwamem-samtools-view/bam
       sample: sample
@@ -124,7 +124,7 @@ steps:
       reportfunc: reportfunc
       headhtml: headhtml
       tailhtml: tailhtml
-    out: [report] 
+    out: [report]
 
 s:codeRepository: https://github.com/arvados/arvados-tutorial
 s:license: https://www.gnu.org/licenses/agpl-3.0.en.html

@@ -8,11 +8,11 @@ requirements:
   ShellCommandRequirement: {}
   ResourceRequirement:
     ramMin: 50000
-    coresMin: 16 
+    coresMin: 16
 
 hints:
   arv:RuntimeConstraints:
-    keep_cache: 1024 
+    keep_cache: 1024
     outputDirType: keep_output_dir
   SoftwareRequirement:
     packages:
@@ -36,15 +36,15 @@ inputs:
       - .sa
       - .fai
       - ^.dict
-  fastq1: 
+  fastq1:
     type: File
     format: edam:format_1930 # FASTQ
     label: One of set of pair-end FASTQs (R1)
-  fastq2: 
+  fastq2:
     type: File
     format: edam:format_1930 # FASTQ
     label: One of set of pair-end FASTQs (R2)
-  sample: 
+  sample:
     type: string
     label: Sample Name
 
@@ -66,7 +66,7 @@ arguments:
   - $(runtime.cores)
   - $(inputs.reference)
   - -R
-  - '@RG\tID:sample\tSM:sample\tLB:sample\tPL:ILLUMINA\tPU:sample1' 
+  - '@RG\tID:sample\tSM:sample\tLB:sample\tPL:ILLUMINA\tPU:sample1'
   - -c
   - '250'
   - $(inputs.fastq1)
@@ -91,6 +91,6 @@ $namespaces:
  arv: "http://arvados.org/cwl#"
  cwltool: "http://commonwl.org/cwltool#"
 
-$schemas:
- - https://schema.org/version/latest/schema.rdf
- - http://edamontology.org/EDAM_1.18.owl
+#$schemas:
+# - https://schema.org/version/latest/schema.rdf
+# - http://edamontology.org/EDAM_1.18.owl

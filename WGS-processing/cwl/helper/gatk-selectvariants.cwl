@@ -38,7 +38,7 @@ inputs:
       - .sa
       - .fai
       - ^.dict
-  sample: 
+  sample:
     type: string
     label: Sample Name
 
@@ -46,7 +46,7 @@ outputs:
   filteredgvcf:
     type: File
     format: edam:format_3016 # GVCF
-    label: Given interval filtered GVCF 
+    label: Given interval filtered GVCF
     outputBinding:
       glob: "*g.vcf.gz"
 
@@ -55,7 +55,7 @@ baseCommand: /gatk/gatk
 arguments:
   - "--java-options"
   - "-Xmx4G"
-  - SelectVariants 
+  - SelectVariants
   - prefix: "-R"
     valueFrom: $(inputs.reference)
   - prefix: "--remove-unused-alternates"
@@ -74,6 +74,6 @@ $namespaces:
  arv: "http://arvados.org/cwl#"
  cwltool: "http://commonwl.org/cwltool#"
 
-$schemas:
- - https://schema.org/version/latest/schema.rdf
- - http://edamontology.org/EDAM_1.18.owl
+#$schemas:
+# - https://schema.org/version/latest/schema.rdf
+# - http://edamontology.org/EDAM_1.18.owl

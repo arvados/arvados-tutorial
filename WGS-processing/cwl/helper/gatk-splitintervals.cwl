@@ -32,10 +32,10 @@ inputs:
       - .sa
       - .fai
       - ^.dict
-  sample: 
+  sample:
     type: string
     label: Sample Name
-  scattercount: 
+  scattercount:
     type: string
     label: Desired split for variant calling
 
@@ -70,6 +70,6 @@ $namespaces:
  arv: "http://arvados.org/cwl#"
  cwltool: "http://commonwl.org/cwltool#"
 
-$schemas:
- - https://schema.org/version/latest/schema.rdf
- - http://edamontology.org/EDAM_1.18.owl
+#$schemas:
+# - https://schema.org/version/latest/schema.rdf
+# - http://edamontology.org/EDAM_1.18.owl
