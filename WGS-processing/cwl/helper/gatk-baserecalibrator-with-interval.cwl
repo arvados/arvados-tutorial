@@ -5,9 +5,6 @@ label: Generate recalibration table for BQSR
 requirements:
   DockerRequirement:
     dockerPull: broadinstitute/gatk:4.1.7.0
-  InitialWorkDirRequirement:
-    listing:
-      - $(inputs.bam)
 
 hints:
   arv:RuntimeConstraints:
@@ -70,7 +67,7 @@ arguments:
   - prefix: "-R"
     valueFrom: $(inputs.reference)
   - prefix: "-I"
-    valueFrom: $(inputs.bam.basename)
+    valueFrom: $(inputs.bam)
   - prefix: "--known-sites"
     valueFrom: $(inputs.knownsites)
   - prefix: "-L"
