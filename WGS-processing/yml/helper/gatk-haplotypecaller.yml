@@ -1,6 +1,0 @@
-bam:
-  class: File
-  location: keep:6e574d6e8eb051b5ab2554e088b39332+144/out.sorted.bam
-reference:
-  class: File
-  location: keep:a3af04432df3d71d22f2fe8be549ba96+5974/hg38.fa

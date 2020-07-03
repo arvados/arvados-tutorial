@@ -1,5 +1,6 @@
 reference:
   class: File
+  format: edam:format_1929
   location: keep:a3af04432df3d71d22f2fe8be549ba96+5974/hg38.fa
 
 fastqdir:
@@ -8,6 +9,7 @@ fastqdir:
 
 clinvarvcf:
   class: File
+  format: edam:format_3016
   location: keep:242ba3b9049aee86ab2c72db4f3b2822+223/38/clinvar.vcf.gz
 
 reportfunc:
@@ -16,14 +18,17 @@ reportfunc:
 
 headhtml:
   class: File
+  format: edam:format_2331
   location: ../src/annotation/head.html
 
 tailhtml:
   class: File
+  format: edam:format_2331
   location: ../src/annotation/tail.html
 
 scattercount: '32'
 
 knownsites:
   class: File
+  format: edam:format_3016
   location: keep:7c0b13bda857fa15d88c1039182f69d5+8052/Homo_sapiens_assembly38.known_indels.vcf.gz
