@@ -68,7 +68,7 @@ arguments:
   - prefix: "-L"
     valueFrom: $(inputs.intervallist)
   - prefix: "-O"
-    valueFrom: $(runtime.outdir)/$(inputs.sample)-$(inputs.intervallist.nameroot).gatk.g.vcf.gz
+    valueFrom: $(inputs.sample)-$(inputs.intervallist.nameroot).gatk.g.vcf.gz
   - prefix: "-ERC"
     valueFrom: "GVCF"
   - prefix: "-GQB"
