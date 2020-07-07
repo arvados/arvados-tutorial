@@ -2,18 +2,22 @@ sample: ERR1726424
 
 reference:
   class: File
+  format: edam:format_1929
   location: keep:a3af04432df3d71d22f2fe8be549ba96+5974/hg38.fa
 
 fastq1:
   class: File
+  format: edam:format_1930
   location: keep:c96565a96cd428fe92bf70e97488bd80+21857/ERR1726424_1.fastq/ERR1726424_1.fastq.gz 
 
 fastq2:
   class: File
+  format: edam:format_1930
   location: keep:0ea6e3aaa6ead18a2cc4ba67a22939e9+25007/ERR1726424_2.fastq/ERR1726424_2.fastq.gz
 
 clinvarvcf:
   class: File
+  format: edam:format_3016
   location: keep:242ba3b9049aee86ab2c72db4f3b2822+223/38/clinvar.vcf.gz
 
 reportfunc:
@@ -22,14 +26,17 @@ reportfunc:
 
 headhtml:
   class: File
+  format: edam:format_1964
   location: /data-sdd/pgp/arvados-tutorial/src/annotation/head.html
 
 tailhtml:
   class: File
+  format: edam:format_1964
   location: /data-sdd/pgp/arvados-tutorial/src/annotation/tail.html
 
 scattercount: '32'
 
 knownsites:
   class: File
+  format: edam:format_3016
   location: keep:7c0b13bda857fa15d88c1039182f69d5+8052/Homo_sapiens_assembly38.known_indels.vcf.gz

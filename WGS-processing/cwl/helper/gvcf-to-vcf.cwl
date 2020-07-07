@@ -3,9 +3,9 @@ class: CommandLineTool
 label: Convert GVCF to VCF
 
 requirements:
-  - class: DockerRequirement
+  DockerRequirement:
     dockerPull: curii/clinvar-report
-  - class: ShellCommandRequirement
+  ShellCommandRequirement: {}
 
 hints:
   ResourceRequirement:

@@ -1,9 +1,11 @@
 bam:
   class: File
+  format: edam:format_2572
   location: keep:79407f4f0d46a44fcc9c377461ee85fc+53752/marked_dupsERR1726424.sorted.bam
 
 reference:
   class: File
+  format: edam:format_1929
   location: keep:a3af04432df3d71d22f2fe8be549ba96+5974/hg38.fa
 
 sample: ERR1726424

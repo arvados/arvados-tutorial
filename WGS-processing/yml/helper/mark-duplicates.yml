@@ -1,3 +1,4 @@
 bam:
   class: File
+  format: edam:format_2572
   location: keep:713b093318f16861084d17a252eef710+12715/WGC069888D.bam

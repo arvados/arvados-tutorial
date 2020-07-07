@@ -3,8 +3,8 @@ class: Workflow
 label: Scattered variant calling workflow
 
 requirements:
-  - class: SubworkflowFeatureRequirement
-  - class: ScatterFeatureRequirement
+  SubworkflowFeatureRequirement: {}
+  ScatterFeatureRequirement: {}
 
 inputs:
   bam:

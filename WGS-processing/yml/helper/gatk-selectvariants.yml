@@ -1,9 +1,11 @@
 gvcf:
   class: File
+  format: edam:format_3016
   location: keep:3b34d300671c8dc8d1b2327f6ddab140+587/ERR1726424.g.vcf.gz 
 
 reference:
   class: File
+  format: edam:format_1929
   location: keep:a3af04432df3d71d22f2fe8be549ba96+5974/hg38.fa
 
 sample: ERR1726424

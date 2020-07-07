@@ -3,7 +3,7 @@ class: Workflow
 label: WGS processing workflow for single sample
 
 requirements:
-  - class: SubworkflowFeatureRequirement
+  SubworkflowFeatureRequirement: {}
 
 inputs:
   fastq1:
@@ -119,7 +119,7 @@ steps:
     run: report-wf.cwl
     in:
       gvcf: haplotypecaller/gatheredgvcf
-      samplename: sample
+      sample: sample
       clinvarvcf: clinvarvcf
       reportfunc: reportfunc
       headhtml: headhtml
@@ -133,6 +133,6 @@ $namespaces:
  s: https://schema.org/
  edam: http://edamontology.org/
 
-$schemas:
- - https://schema.org/version/latest/schema.rdf
- - http://edamontology.org/EDAM_1.18.owl
+#$schemas:
+# - https://schema.org/version/latest/schema.rdf
+# - http://edamontology.org/EDAM_1.18.owl

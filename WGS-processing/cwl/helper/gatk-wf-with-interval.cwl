@@ -3,7 +3,7 @@ class: Workflow
 label: Variant calling workflow for given interval
 
 requirements:
-  - class: SubworkflowFeatureRequirement
+  SubworkflowFeatureRequirement: {}
 
 inputs:
   bam:

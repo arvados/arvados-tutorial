@@ -1,9 +1,11 @@
 bam:
   class: File
+  format: edam:format_2572
   location: keep:377c02de508dff9e4474f9a48d754933+53821/marked_dupsERR1726424.sorted.bam 
 
 reference:
   class: File
+  format: edam:format_1929
   location: keep:a3af04432df3d71d22f2fe8be549ba96+5974/hg38.fa
 
 intervallist:
@@ -14,4 +16,5 @@ sample: ERR1726424
 
 knownsites:
   class: File
+  format: edam:format_3016
   location: keep:7c0b13bda857fa15d88c1039182f69d5+8052/Homo_sapiens_assembly38.known_indels.vcf.gz

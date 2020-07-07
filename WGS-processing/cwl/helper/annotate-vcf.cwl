@@ -3,9 +3,9 @@ class: CommandLineTool
 label: Annotate and filter VCF
 
 requirements:
-  - class: DockerRequirement
+  DockerRequirement:
     dockerPull: curii/clinvar-report
-  - class: ShellCommandRequirement
+  ShellCommandRequirement: {}
 
 hints:
   ResourceRequirement:
@@ -32,7 +32,6 @@ inputs:
 
 outputs:
   reporttxt: stdout
-  label: Annotated text from VCF
 
 arguments:
   - bcftools
