@@ -4,16 +4,16 @@ label: Align FASTQs with BWA
 
 requirements:
   DockerRequirement:
-    dockerPull: curii/bwa-samtools-picard
+    dockerPull: curii/bwa-samtools
   ShellCommandRequirement: {}
-  ResourceRequirement:
-    ramMin: 50000
-    coresMin: 16
 
 hints:
   arv:RuntimeConstraints:
     keep_cache: 1024
     outputDirType: keep_output_dir
+  ResourceRequirement:
+    ramMin: 50000
+    coresMin: 16
   SoftwareRequirement:
     packages:
       BWA:

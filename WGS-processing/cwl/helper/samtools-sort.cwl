@@ -4,7 +4,7 @@ label: Sort BAM
 
 requirements:
   DockerRequirement:
-    dockerPull: curii/bwa-samtools-picard
+    dockerPull: curii/bwa-samtools
   ShellCommandRequirement: {}
   ResourceRequirement:
     ramMin: 20000

@@ -4,7 +4,7 @@ label: Index BAM
 
 requirements:
   DockerRequirement:
-    dockerPull: curii/bwa-samtools-picard
+    dockerPull: curii/bwa-samtools
   InitialWorkDirRequirement:
     listing:
       - $(inputs.bam)
