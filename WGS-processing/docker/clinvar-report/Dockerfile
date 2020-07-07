@@ -22,3 +22,5 @@ RUN cd /tmp && wget http://github.com/samtools/htslib/archive/1.10.2.zip && unzi
 
 # Install bcftools 1.10.2
 RUN wget http://github.com/samtools/bcftools/archive/1.10.2.zip && unzip 1.10.2 && cd bcftools-1.10.2 && autoheader && autoconf && ./configure && make && make install
+
+CMD /bin/sh
