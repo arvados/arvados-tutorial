@@ -56,7 +56,7 @@ outputs:
   report:
     type: File[]  
     outputSource: bwamem-gatk-report/report
-    format: edam:format_1964 # HTML
+    format: edam:format_2331 # HTML
     label: ClinVar variant reports 
 
 steps:
