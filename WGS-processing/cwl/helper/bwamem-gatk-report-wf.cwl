@@ -47,18 +47,18 @@ inputs:
     label: Function used to create HTML report
   headhtml:
     type: File
-    format: edam:format_1964 # HTML
+    format: edam:format_2331 # HTML
     label: Header for HTML report
   tailhtml:
     type: File
-    format: edam:format_1964 # HTML
+    format: edam:format_2331 # HTML
     label: Footer for HTML report
 
 outputs:
   qc-html:
     type: File[]
     label: FASTQ QC reports
-    format: edam:format_1964 # HTML
+    format: edam:format_2331 # HTML
     outputSource: fastqc/out-html
   qc-zip:
     type: File[]
@@ -72,7 +72,7 @@ outputs:
   report:
     type: File  
     outputSource: generate-report/report
-    format: edam:format_1964 # HTML
+    format: edam:format_2331 # HTML
     label: ClinVar variant report
 
 steps:

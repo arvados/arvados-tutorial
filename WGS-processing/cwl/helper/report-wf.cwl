@@ -19,7 +19,7 @@ inputs:
     label: Function used to create HTML report
   headhtml:
     type: File
-    format: edam:format_2331# HTML
+    format: edam:format_2331 # HTML
     label: Header for HTML report
   tailhtml:
     type: File
@@ -29,7 +29,7 @@ inputs:
 outputs:
   report:
     type: File
-    format: edam:format_1964 # HTML
+    format: edam:format_2331 # HTML
     label: ClinVar variant report
     outputSource: generate-report/report
 

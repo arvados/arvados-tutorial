@@ -27,7 +27,7 @@ outputs:
   out-html:
     type: File[]
     label: FASTQ QC reports
-    format: edam:format_1964 # HTML
+    format: edam:format_2331 # HTML
     outputBinding:
       glob: "*html"
   out-zip:
