@@ -25,6 +25,9 @@ inputs:
       - .sa
       - .fai
       - ^.dict
+  fullintervallist:
+    type: File
+    label: Full list of intervals to operate over
   sample:
     type: string
     label: Sample Name
@@ -52,6 +55,7 @@ steps:
     run: gatk-splitintervals.cwl
     in:
       reference: reference
+      fullintervallist: fullintervallist
       sample: sample
       scattercount: scattercount
     out: [intervalfiles]

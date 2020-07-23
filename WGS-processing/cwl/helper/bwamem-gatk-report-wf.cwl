@@ -26,6 +26,9 @@ inputs:
       - .sa
       - .fai
       - ^.dict
+  fullintervallist:
+    type: File
+    label: Full list of intervals to operate over
   sample: 
     type: string
     label: Sample Name
@@ -110,6 +113,7 @@ steps:
     run: scatter-gatk-wf-with-interval.cwl 
     in:
       reference: reference
+      fullintervallist: fullintervallist
       bam: samtools-index/indexedbam
       sample: sample
       scattercount: scattercount

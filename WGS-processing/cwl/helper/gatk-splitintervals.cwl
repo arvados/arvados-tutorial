@@ -32,6 +32,9 @@ inputs:
       - .sa
       - .fai
       - ^.dict
+  fullintervallist:
+    type: File
+    label: Full list of intervals to operate over
   sample:
     type: string
     label: Sample Name
@@ -54,6 +57,8 @@ arguments:
   - SplitIntervals
   - prefix: "-R"
     valueFrom: $(inputs.reference)
+  - prefix: "-L"
+    valueFrom: $(inputs.fullintervallist)
   - prefix: "--scatter-count"
     valueFrom: $(inputs.scattercount)
   - prefix: "--subdivision-mode"

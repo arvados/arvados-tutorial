@@ -1,0 +1,16 @@
+reference:
+  class: File
+  format: edam:format_1929 
+  location: keep:5eac1d1c03ff6404226421a8d8351cf1+6133/GRCh38_no_alt_plus_hs38d1_analysis_set.fna 
+
+fastq1:
+  class: File
+  format: edam:format_1930 
+  location: keep:24df1ea93ad5275aa511462ea85b0548+20283/WGC071838D_R1.fastq.gz
+
+fastq2:
+  class: File
+  format: edam:format_1930 
+  location: keep:24df1ea93ad5275aa511462ea85b0548+20283/WGC071838D_R2.fastq.gz
+
+sample: WGC071838D

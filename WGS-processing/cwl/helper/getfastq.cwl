@@ -41,6 +41,7 @@ expression: |
     var fastq2 = [];
     for (var i = 0; i < inputs.fastqdir.listing.length; i++) {
       var name = inputs.fastqdir.listing[i];
+      name.format = 'http://edamontology.org/format_1930'
       if (name.basename.indexOf('_1.fastq.gz') != -1 ) {
         fastq1.push(name);
       }

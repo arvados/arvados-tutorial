@@ -1,7 +1,11 @@
 reference:
   class: File
   format: edam:format_1929
-  location: keep:a3af04432df3d71d22f2fe8be549ba96+5974/hg38.fa
+  location: keep:5eac1d1c03ff6404226421a8d8351cf1+6133/GRCh38_no_alt_plus_hs38d1_analysis_set.fna 
+
+fullintervallist:
+  class: File
+  location: /data-sdd/pgp/testdata/full-noalt-scattered.interval_list
 
 fastqdir:
   class: Directory
@@ -26,7 +30,7 @@ tailhtml:
   format: edam:format_2331
   location: ../src/annotation/tail.html
 
-scattercount: '32'
+scattercount: '20'
 
 knownsites:
   class: File

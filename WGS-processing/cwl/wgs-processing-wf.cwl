@@ -22,6 +22,8 @@ inputs:
       - .sa
       - .fai
       - ^.dict
+  fullintervallist:
+    type: File
   knownsites:
     type: File
     format: edam:format_3016 # VCF
@@ -74,6 +76,7 @@ steps:
       fastq1: getfastq/fastq1
       fastq2: getfastq/fastq2
       reference: reference
+      fullintervallist: fullintervallist
       sample: getfastq/sample
       knownsites: knownsites
       scattercount: scattercount
