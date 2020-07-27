@@ -41,7 +41,13 @@ inputs:
   sample:
     type: string
     label: Sample Name
-  knownsites:
+  knownsites1:
+    type: File
+    format: edam:format_3016 # VCF
+    label: VCF of known polymorphic sites for BQSR
+    secondaryFiles:
+      - .idx
+  knownsites2:
     type: File
     format: edam:format_3016 # VCF
     label: VCF of known polymorphic sites for BQSR
@@ -69,7 +75,9 @@ arguments:
   - prefix: "-I"
     valueFrom: $(inputs.bam)
   - prefix: "--known-sites"
-    valueFrom: $(inputs.knownsites)
+    valueFrom: $(inputs.knownsites1)
+  - prefix: "--known-sites"
+    valueFrom: $(inputs.knownsites2)
   - prefix: "-L"
     valueFrom: $(inputs.intervallist)
   - prefix: "-O"

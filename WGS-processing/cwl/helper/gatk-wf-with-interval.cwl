@@ -27,7 +27,13 @@ inputs:
   sample:
     type: string
     label: Sample Name
-  knownsites:
+  knownsites1:
+    type: File
+    format: edam:format_3016 # VCF
+    label: VCF of known polymorphic sites for BQSR
+    secondaryFiles:
+      - .idx
+  knownsites2:
     type: File
     format: edam:format_3016 # VCF
     label: VCF of known polymorphic sites for BQSR
@@ -51,7 +57,8 @@ steps:
       bam: bam
       reference: reference
       sample: sample
-      knownsites: knownsites
+      knownsites1: knownsites1
+      knownsites2: knownsites2
       intervallist: intervallist
     out: [recaltable]
   applyBQSR:

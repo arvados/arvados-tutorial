@@ -32,12 +32,18 @@ inputs:
   sample: 
     type: string
     label: Sample Name
-  knownsites:
+  knownsites1:
     type: File
     format: edam:format_3016 # VCF
     label: VCF of known polymorphic sites for BQSR
     secondaryFiles:
-      - .tbi   
+      - .idx 
+  knownsites2:
+    type: File
+    format: edam:format_3016 # VCF
+    label: VCF of known polymorphic sites for BQSR
+    secondaryFiles:
+      - .tbi  
   scattercount: 
     type: string
     label: Desired split for variant calling
@@ -117,7 +123,8 @@ steps:
       bam: samtools-index/indexedbam
       sample: sample
       scattercount: scattercount
-      knownsites: knownsites
+      knownsites1: knownsites1
+      knownsites2: knownsites2
     out: [gatheredgvcf]
   generate-report:
     run: report-wf.cwl

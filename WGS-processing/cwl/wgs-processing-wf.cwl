@@ -24,12 +24,18 @@ inputs:
       - ^.dict
   fullintervallist:
     type: File
-  knownsites:
+  knownsites1:
     type: File
     format: edam:format_3016 # VCF
-    label: VCF of known polymorphic sites for BQSR
+    label: VCF of known SNPS sites for BQSR
     secondaryFiles:
-      - .tbi   
+      - .idx   
+  knownsites2:
+    type: File
+    format: edam:format_3016 # VCF
+    label: VCF of known indel sites for BQSR
+    secondaryFiles:
+      - .tbi
   scattercount: 
     type: string
     label: Desired split for variant calling
@@ -78,7 +84,8 @@ steps:
       reference: reference
       fullintervallist: fullintervallist
       sample: getfastq/sample
-      knownsites: knownsites
+      knownsites1: knownsites1
+      knownsites2: knownsites2
       scattercount: scattercount
       clinvarvcf: clinvarvcf
       reportfunc: reportfunc
