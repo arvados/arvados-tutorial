@@ -35,15 +35,15 @@ inputs:
   knownsites1:
     type: File
     format: edam:format_3016 # VCF
-    label: VCF of known polymorphic sites for BQSR
+    label: VCF of known SNPS sites for BQSR
     secondaryFiles:
-      - .idx 
+      - .idx
   knownsites2:
     type: File
     format: edam:format_3016 # VCF
-    label: VCF of known polymorphic sites for BQSR
+    label: VCF of known indel sites for BQSR
     secondaryFiles:
-      - .tbi  
+      - .tbi
   scattercount: 
     type: string
     label: Desired split for variant calling
