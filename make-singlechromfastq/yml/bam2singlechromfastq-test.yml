@@ -1,0 +1,6 @@
+bam:
+  class: File
+  format: edam:format_2572
+  location: keep:df46f3dd9eb77e1cfda3fa2b5c165858+60837/marked_dupsERR2122556.sorted.bam
+sample: "ERR2122553"
+chrom: "chr19"

@@ -1,0 +1,23 @@
+bams:
+  - class: File
+    format: edam:format_2572
+    location: keep:0df1f086f260b8df5c3bd93197d84429+53025/marked_dupsERR2122553.sorted.bam
+  - class: File
+    format: edam:format_2572
+    location: keep:0dc5d70a309efb72c062ab34441ec29b+50421/marked_dupsERR2122554.sorted.bam
+  - class: File
+    format: edam:format_2572
+    location: keep:02264391f04e717ff90432e49a99f419+50631/marked_dupsERR2122555.sorted.bam
+  - class: File
+    format: edam:format_2572
+    location: keep:df46f3dd9eb77e1cfda3fa2b5c165858+60837/marked_dupsERR2122556.sorted.bam
+  - class: File
+    format: edam:format_2572
+    location: keep:2656a255e5ac6ce9d59d606bc9bed3a8+60669/marked_dupsERR2122557.sorted.bam
+samples:
+  - "ERR2122553"
+  - "ERR2122554"
+  - "ERR2122555"
+  - "ERR2122556"
+  - "ERR2122557"
+chrom: "chr19"

@@ -1,0 +1,44 @@
+reference:
+  class: File
+  format: edam:format_1929
+  location: keep:18657d75efb4afd31a14bb204d073239+13611/GRCh38_no_alt_plus_hs38d1_analysis_set.fna 
+
+#the difference between this and the whole genome version is that this interval list is restricted to chr19
+fullintervallist:
+  class: File
+  location: keep:380552882945f62850d298f8e86e5039+75/chr19-scattered.interval_list
+
+fastqdir:
+  class: Directory
+  location: keep:35d4f4c5720a1e1c7b5c583cc901c3e0+3765
+
+clinvarvcf:
+  class: File
+  format: edam:format_3016
+  location: keep:18657d75efb4afd31a14bb204d073239+13611/clinvar.vcf.gz
+
+reportfunc:
+  class: File
+  location: ../src/annotation/generatereport.py
+
+headhtml:
+  class: File
+  format: edam:format_2331
+  location: ../src/annotation/head.html
+
+tailhtml:
+  class: File
+  format: edam:format_2331
+  location: ../src/annotation/tail.html
+
+scattercount: '20'
+
+knownsites1:
+  class: File
+  format: edam:format_3016
+  location: keep:18657d75efb4afd31a14bb204d073239+13611/Homo_sapiens_assembly38.dbsnp138.vcf 
+
+knownsites2:
+  class: File
+  format: edam:format_3016
+  location: keep:18657d75efb4afd31a14bb204d073239+13611/Homo_sapiens_assembly38.known_indels.vcf.gz
