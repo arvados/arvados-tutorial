@@ -3,6 +3,7 @@ reference:
   format: edam:format_1929
   location: keep:18657d75efb4afd31a14bb204d073239+13611/GRCh38_no_alt_plus_hs38d1_analysis_set.fna 
 
+#the difference between this and the whole genome version is that this interval list is restricted to chr19
 fullintervallist:
   class: File
   location: keep:380552882945f62850d298f8e86e5039+75/chr19-scattered.interval_list
