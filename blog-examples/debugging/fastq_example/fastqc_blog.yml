@@ -1,0 +1,8 @@
+fastq1:
+  class: File
+  location: keep:c96565a96cd428fe92bf70e97488bd80+21857/ERR1726424_1.fastq/ERR1726424_1.fastq.gz
+
+fastq2:
+  class: File
+  location: keep:0ea6e3aaa6ead18a2cc4ba67a22939e9+25007/ERR1726424_2.fastq/ERR1726424_2.fastq.gz
+
