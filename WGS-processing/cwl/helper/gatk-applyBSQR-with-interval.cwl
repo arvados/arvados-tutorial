@@ -54,7 +54,7 @@ outputs:
     format: edam:format_2572 # BAM
     label: Recalibrated BAM for given interval
     secondaryFiles:
-      - .bai
+      - ^.bai
     outputBinding:
       glob: "*nodups_BQSR.bam"
 

@@ -25,7 +25,7 @@ inputs:
     format: edam:format_2572 # BAM
     label: Recalibrated BAM for given interval
     secondaryFiles:
-      - .bai
+      - ^.bai
   reference:
     type: File
     format: edam:format_1929 # FASTA
