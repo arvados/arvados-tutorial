@@ -19,9 +19,9 @@ hints:
 
 inputs:
   fastq1:
-    type: File
+    type: Files
     label: One of set of pair-end FASTQs (R1)
-    
+
   fastq2:
     type: File
     label: One of set of pair-end FASTQs (R2)

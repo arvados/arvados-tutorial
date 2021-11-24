@@ -1,0 +1,7 @@
+fastq1:
+  class: Directory
+  location: keep:be73607762d9948f8da2c1151dc3ef46+70694
+
+fastq2:
+  class: File
+  location: keep:be73607762d9948f8da2c1151dc3ef46+70694/ERR2122553_2.fastq.gz

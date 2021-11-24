@@ -5,6 +5,10 @@ label: Quality check on FASTQ
 requirements:
   DockerRequirement:
     dockerPull: biocontainers/fastqc:v0.11.9_cv6
+  InitialWorkDirRequirement:
+    listing:
+      - $(inputs.fastq1)
+      - $(inputs.fastq2)
 
 hints:
   SoftwareRequirement:
@@ -17,6 +21,7 @@ inputs:
   fastq1:
     type: File
     label: One of set of pair-end FASTQs (R1)
+
   fastq2:
     type: File
     label: One of set of pair-end FASTQs (R2)
@@ -37,8 +42,8 @@ baseCommand: fastqc
 
 arguments:
   - "--noextract"
-  - $(inputs.fastq1.path)
-  - $(inputs.fastq2.path)
+  - $(inputs.fastq1.basename)
+  - $(inputs.fastq2.basename)
 
 s:codeRepository: https://github.com/arvados/arvados-tutorial/blog-examples/debugging
 s:license: https://www.gnu.org/licenses/agpl-3.0.en.html
