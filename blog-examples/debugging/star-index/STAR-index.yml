@@ -1,0 +1,9 @@
+InputFiles:
+  - class: File
+    location: rnaseq/reference_data/chr1.fa
+    format: http://edamontology.org/format_1930
+IndexName: 'hg19-chr1-STAR-index'
+Gtf:
+  class: File
+  location: rnaseq/reference_data/chr1-hg19_genes.gtf
+Overhang: 99
