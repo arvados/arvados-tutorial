@@ -3,7 +3,9 @@ class: Workflow
 label: RNAseq workflow 
 
 inputs:
-  fqdir: Directory 
+  fqdir: 
+    type: Directory 
+    loadListing: shallow_listing
   genome: Directory
   gtf: File
 
@@ -50,7 +52,3 @@ requirements:
   SubworkflowFeatureRequirement: {}
   ScatterFeatureRequirement: {}
   StepInputExpressionRequirement: {}
-
-hints:
-  LoadListingRequirement:
-    loadListing: shallow_listing
