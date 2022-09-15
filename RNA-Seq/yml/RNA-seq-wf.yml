@@ -1,0 +1,14 @@
+fq:
+  - class: File
+    location: keep:pirca-4zz18-blweknwtwyjys0i/Mov10_oe_1.subset.fq
+    format: http://edamontology.org/format_1930
+  - class: File
+    location: keep:pirca-4zz18-blweknwtwyjys0i/Mov10_oe_2.subset.fq
+    format: http://edamontology.org/format_1930
+genome:
+  class: Directory
+  location: keep:pirca-4zz18-c543b5welq68g90/hg19-chr1-STAR-index
+gtf:
+  class: File
+  location: keep:pirca-4zz18-c543b5welq68g90/chr1-hg19_genes.gtf
+

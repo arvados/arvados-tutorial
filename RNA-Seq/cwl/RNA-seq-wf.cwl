@@ -9,7 +9,7 @@ inputs:
 
 steps:
   alignment:
-    run: alignment.cwl
+    run: helper/alignment.cwl
     scatter: fq
     in:
       fq: fq
@@ -21,15 +21,14 @@ steps:
     requirements:
       ResourceRequirement:
         ramMin: 500
-    run: featureCounts.cwl
+    run: helper/featureCounts.cwl
     in:
       counts_input_bam: alignment/bam_sorted_indexed
       gtf: gtf
     out: [featurecounts]
 
-  ### 2. Organizing output files into Directories
   output-subdirs:
-    run: subdirs.cwl
+    run: helper/subdirs.cwl
     in:
       fq: fq
       bams: alignment/bam_sorted_indexed
