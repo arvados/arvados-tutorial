@@ -32,11 +32,6 @@ outputs:
   bam_sorted_indexed:
     type: File
     secondaryFiles: .bai
-    format: edam:format_2572  # BAM 
     outputBinding:
       glob: $(inputs.bam_sorted.basename)
       
-$namespaces:
-  edam: https://edamontology.org/
-$schemas:
-  - https://edamontology.org/EDAM_1.18.owl

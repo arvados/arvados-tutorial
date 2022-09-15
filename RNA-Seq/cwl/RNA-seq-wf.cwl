@@ -13,7 +13,7 @@ steps:
     scatter: fq
     in:
       fq:
-        valueFrom: $(inputs.fq.listing)
+        valueFrom: $(inputs.fqdir.listing)
       genome: genome
       gtf: gtf
     out: [qc_html, bam_sorted_indexed]
@@ -32,7 +32,7 @@ steps:
     run: helper/subdirs.cwl
     in:
       fq: 
-       valueFrom: $(inputs.fq.listing)
+       valueFrom: $(inputs.fqdir.listing)
       bams: alignment/bam_sorted_indexed
       qc: alignment/qc_html
     out: [dirs]
@@ -49,6 +49,7 @@ outputs:
 requirements:
   SubworkflowFeatureRequirement: {}
   ScatterFeatureRequirement: {}
+  StepInputExpressionRequirement: {}
 
 hints:
   LoadListingRequirement:
