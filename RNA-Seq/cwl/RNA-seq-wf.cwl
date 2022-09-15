@@ -1,9 +1,9 @@
 cwlVersion: v1.2
 class: Workflow
-label: RNAseq CWL practice workflow
+label: RNAseq workflow 
 
 inputs:
-  fq: File[]
+  fqdir: Directory 
   genome: Directory
   gtf: File
 
@@ -12,7 +12,8 @@ steps:
     run: helper/alignment.cwl
     scatter: fq
     in:
-      fq: fq
+      fq:
+        valueFrom: $(inputs.fq.listing)
       genome: genome
       gtf: gtf
     out: [qc_html, bam_sorted_indexed]
@@ -30,7 +31,8 @@ steps:
   output-subdirs:
     run: helper/subdirs.cwl
     in:
-      fq: fq
+      fq: 
+       valueFrom: $(inputs.fq.listing)
       bams: alignment/bam_sorted_indexed
       qc: alignment/qc_html
     out: [dirs]
@@ -47,3 +49,7 @@ outputs:
 requirements:
   SubworkflowFeatureRequirement: {}
   ScatterFeatureRequirement: {}
+
+hints:
+  LoadListingRequirement:
+    loadListing: shallow_listing

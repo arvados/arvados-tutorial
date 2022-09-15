@@ -1,6 +1,6 @@
 cwlVersion: v1.2
 class: Workflow
-label: RNAseq CWL practice workflow
+label: RNAseq Alignment workflow
 
 inputs:
   fq: File
