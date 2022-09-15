@@ -1,10 +1,12 @@
 fqdir:
   class: Directory
-  location: keep:pirca-4zz18-blweknwtwyjys0i/
+  location: keep:1360b500543d1d0b041084a2f99d33b6+567/
+  #location: keep:pirca-4zz18-blweknwtwyjys0i/
 genome:
   class: Directory
-  location: keep:pirca-4zz18-c543b5welq68g90/hg19-STAR-index
+  location: keep:64e703acc21226ce99f3d88eacdacd0b+3159/hg19-STAR-index
+  #location: keep:pirca-4zz18-c543b5welq68g90/hg19-STAR-index
 gtf:
   class: File
-  location: keep:pirca-4zz18-c543b5welq68g90/chr1-hg19_genes.gtf
-
+  location: keep:64e703acc21226ce99f3d88eacdacd0b+3159/chr1-hg19_genes.gtf
+  #location: keep:pirca-4zz18-c543b5welq68g90/chr1-hg19_genes.gtf

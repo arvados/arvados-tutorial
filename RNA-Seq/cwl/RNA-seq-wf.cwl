@@ -1,21 +1,26 @@
 cwlVersion: v1.2
 class: Workflow
-label: RNAseq workflow 
+label: RNAseq workflow
 
 inputs:
-  fqdir: 
-    type: Directory 
+  fqdir:
+    type: Directory
     loadListing: shallow_listing
   genome: Directory
   gtf: File
 
 steps:
+  splitDir:
+    in:
+      fqdir: fqdir
+    run: helper/splitDir.cwl
+    out: [fq]
+
   alignment:
     run: helper/alignment.cwl
     scatter: fq
     in:
-      fq:
-        valueFrom: $(inputs.fqdir.listing)
+      fq: splitDir/fq
       genome: genome
       gtf: gtf
     out: [qc_html, bam_sorted_indexed]
@@ -33,8 +38,7 @@ steps:
   output-subdirs:
     run: helper/subdirs.cwl
     in:
-      fq: 
-       valueFrom: $(inputs.fqdir.listing)
+      fq: splitDir/fq
       bams: alignment/bam_sorted_indexed
       qc: alignment/qc_html
     out: [dirs]
