@@ -1,0 +1,7 @@
+name: SampleMetadata
+type: record
+fields:
+  Sample_ID: string
+  Date: string
+  RunName: string
+  InstrumentPlatform: string
