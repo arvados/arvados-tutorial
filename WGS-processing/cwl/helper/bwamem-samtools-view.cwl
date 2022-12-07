@@ -9,7 +9,7 @@ requirements:
 
 hints:
   arv:RuntimeConstraints:
-    keep_cache: 1024
+#    keep_cache: 1024
     outputDirType: keep_output_dir
   ResourceRequirement:
     ramMin: 25000

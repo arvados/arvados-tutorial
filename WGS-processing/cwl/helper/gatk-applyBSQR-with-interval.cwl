@@ -1,6 +1,6 @@
 cwlVersion: v1.1
 class: CommandLineTool
-label: Apply base quality score recalibration 
+label: Apply base quality score recalibration
 
 requirements:
   DockerRequirement:
@@ -9,7 +9,7 @@ requirements:
 hints:
   arv:RuntimeConstraints:
     outputDirType: keep_output_dir
-    keep_cache: 1024
+#    keep_cache: 1024
   ResourceRequirement:
     ramMin: 5000
     coresMin: 2

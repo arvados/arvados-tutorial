@@ -9,7 +9,7 @@ requirements:
 hints:
   arv:RuntimeConstraints:
     outputDirType: keep_output_dir
-    keep_cache: 1024
+#    keep_cache: 1024
   ResourceRequirement:
     ramMin: 3500
     coresMin: 2
@@ -59,7 +59,7 @@ baseCommand: /gatk/gatk
 
 arguments:
   - "--java-options"
-  - "-Xmx4G" 
+  - "-Xmx4G"
   - HaplotypeCaller
   - prefix: "-R"
     valueFrom: $(inputs.reference)
