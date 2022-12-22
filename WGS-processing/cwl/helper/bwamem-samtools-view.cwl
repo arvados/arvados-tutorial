@@ -12,8 +12,8 @@ hints:
 #    keep_cache: 1024
     outputDirType: keep_output_dir
   ResourceRequirement:
-    ramMin: 25000
-    coresMin: 8
+    ramMin: 30000
+    coresMin: 16
   SoftwareRequirement:
     packages:
       BWA:
