@@ -2,10 +2,23 @@ cwlVersion: v1.1
 class: Workflow
 label: Whole Genome Sequence processing workflow scattered over samples
 doc: |
-  <p>This is a “real-world” workflow example that takes in NGS Whole
-  Genome Sequence (WGS) data as FASTQs and performs quality checking,
-  alignment, and variant calling, returning GVCFs and accompanying
-  clinvar variant reports.</p>
+  <p>This is a “real-world” workflow example for processing Next
+  Generation Sequencing (NGS) Whole Genome Sequence (WGS) data.</p>
+
+  <p>You can learn more and run this workflow yourself by going
+  through the <a
+  href="https://doc.arvados.org/main/user/tutorials/wgs-tutorial.html">Processing
+  Whole Genome Sequences</a> walkthrough in the Arvados user
+  guide.</p>
+
+  <p>The steps of this workflow include:</p>
+
+  <ol>
+  <li>Check of fastq quality using FastQC</li>
+  <li>Local alignment using BWA-MEM</li>
+  <li>Variant calling in parallel using GATK Haplotype Caller</li>
+  <li>Generation of an HTML report comparing variants against ClinVar archive</li>
+  </ol>
 
   <p>The primary input parameter is the <b>Directory of paired FASTQ
   files</b>, which should contain paired FASTQ files (suffixed with _1
