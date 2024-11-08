@@ -1,10 +1,19 @@
 cwlVersion: v1.1
 class: Workflow
-label: WGS processing workflow scattered over samples
+label: Whole Genome Sequence processing workflow scattered over samples
 doc: |
-  Does stuff, then does some other stuff.
+  <p>This is a “real-world” workflow example that takes in NGS Whole
+  Genome Sequence (WGS) data as FASTQs and performs quality checking,
+  alignment, and variant calling, returning GVCFs and accompanying
+  clinvar variant reports.</p>
 
-  Blah blah.
+  <p>The main parameter is <i>fastqdir</i>, which takes a directory
+  containing paired FASTQ files (suffixed with _1 and _2) to be
+  processed.  The workflow scatters over the samples to process them
+  in parallel.</p>
+
+  <p>The remaining parameters are reference data used by various tools
+  in the pipeline.</p>
 
 requirements:
   - class: SubworkflowFeatureRequirement
@@ -70,6 +79,11 @@ outputs:
     outputSource: bwamem-gatk-report/report
     format: edam:format_2331 # HTML
     label: ClinVar variant reports
+  qcreport:
+    type: File[]
+    outputSource: bwamem-gatk-report/qc-html
+    format: edam:format_2331 # HTML
+    label: FASTQ quality reports produced by fastqc
 
 steps:
   getfastq:
