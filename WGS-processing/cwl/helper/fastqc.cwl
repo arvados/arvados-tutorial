@@ -4,7 +4,7 @@ label: Quality check on FASTQ
 
 requirements:
   DockerRequirement:
-    dockerPull: biocontainers/fastqc:v0.11.9_cv6
+    dockerPull: biocontainers/fastqc:v0.11.9_cv8
 
 hints:
   SoftwareRequirement:
@@ -12,6 +12,8 @@ hints:
       FastQC:
         specs: [ "https://identifiers.org/rrid/RRID:SCR_014583" ]
         version: [ "0.11.9" ]
+  ResourceRequirement:
+    ramMin: 512
 
 inputs:
   fastq1:
@@ -39,6 +41,8 @@ outputs:
 baseCommand: fastqc
 
 arguments:
+  - '-o'
+  - '.'
   - $(inputs.fastq1.path)
   - $(inputs.fastq2.path)
 

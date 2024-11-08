@@ -1,6 +1,6 @@
 cwlVersion: v1.1
 class: CommandLineTool
-label: Generating recalibration table for BQSR 
+label: Generating recalibration table for BQSR
 
 $namespaces:
   arv: "http://arvados.org/cwl#"
@@ -16,7 +16,6 @@ requirements:
 hints:
   arv:RuntimeConstraints:
     outputDirType: keep_output_dir
-    keep_cache: 1024
   ResourceRequirement:
     ramMin: 5000
     coresMin: 2
@@ -37,7 +36,7 @@ inputs:
       - .fai
       - ^.dict
   sample: string
-  knownsites1: 
+  knownsites1:
     type: File
     secondaryFiles:
       - .tbi

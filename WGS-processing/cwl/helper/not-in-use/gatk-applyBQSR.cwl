@@ -1,6 +1,6 @@
 cwlVersion: v1.1
 class: CommandLineTool
-label: Applying base quality score recalibration 
+label: Applying base quality score recalibration
 
 $namespaces:
   arv: "http://arvados.org/cwl#"
@@ -16,7 +16,6 @@ requirements:
 hints:
   arv:RuntimeConstraints:
     outputDirType: keep_output_dir
-    keep_cache: 1024
   ResourceRequirement:
     ramMin: 5000
     coresMin: 2
@@ -35,7 +34,7 @@ inputs:
       - .fai
       - ^.dict
   sample: string
-  recaltable: 
+  recaltable:
     type: File
 
 outputs:

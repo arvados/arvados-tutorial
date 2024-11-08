@@ -12,7 +12,6 @@ requirements:
 
 hints:
   arv:RuntimeConstraints:
-    keep_cache: 9216
     outputDirType: keep_output_dir
   SoftwareRequirement:
     packages:
