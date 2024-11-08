@@ -7,10 +7,10 @@ doc: |
   alignment, and variant calling, returning GVCFs and accompanying
   clinvar variant reports.</p>
 
-  <p>The main parameter is <i>fastqdir</i>, which takes a directory
-  containing paired FASTQ files (suffixed with _1 and _2) to be
-  processed.  The workflow scatters over the samples to process them
-  in parallel.</p>
+  <p>The primary input parameter is the <b>Directory of paired FASTQ
+  files</b>, which should contain paired FASTQ files (suffixed with _1
+  and _2) to be processed.  The workflow scatters over the samples to
+  process them in parallel.</p>
 
   <p>The remaining parameters are reference data used by various tools
   in the pipeline.</p>
@@ -84,7 +84,7 @@ outputs:
       type: array
       items:
         type: array
-        items: File 
+        items: File
     outputSource: bwamem-gatk-report/qc-html
     format: edam:format_2331 # HTML
     label: FASTQ quality reports produced by fastqc
