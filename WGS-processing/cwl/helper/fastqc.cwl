@@ -4,7 +4,7 @@ label: Quality check on FASTQ
 
 requirements:
   DockerRequirement:
-    dockerPull: biocontainers/fastqc:v0.11.9_cv6
+    dockerPull: biocontainers/fastqc:v0.11.9_cv8
 
 hints:
   SoftwareRequirement:
