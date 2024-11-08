@@ -12,6 +12,8 @@ hints:
       FastQC:
         specs: [ "https://identifiers.org/rrid/RRID:SCR_014583" ]
         version: [ "0.11.9" ]
+  ResourceRequirement:
+    ramMin: 512
 
 inputs:
   fastq1:
@@ -39,6 +41,8 @@ outputs:
 baseCommand: fastqc
 
 arguments:
+  - '-o'
+  - '.'
   - $(inputs.fastq1.path)
   - $(inputs.fastq2.path)
 
