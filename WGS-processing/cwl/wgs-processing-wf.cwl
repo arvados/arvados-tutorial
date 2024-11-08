@@ -80,7 +80,11 @@ outputs:
     format: edam:format_2331 # HTML
     label: ClinVar variant reports
   qcreport:
-    type: File[]
+    type:
+      type: array
+      items:
+        type: array
+        items: File 
     outputSource: bwamem-gatk-report/qc-html
     format: edam:format_2331 # HTML
     label: FASTQ quality reports produced by fastqc
