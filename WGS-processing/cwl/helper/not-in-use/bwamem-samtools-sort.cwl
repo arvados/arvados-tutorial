@@ -16,7 +16,6 @@ requirements:
 hints:
   arv:RuntimeConstraints:
     outputDirType: keep_output_dir
-#    keep_cache: 9216
 
 inputs:
   reference:
