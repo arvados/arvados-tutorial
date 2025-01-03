@@ -62,6 +62,8 @@ inputs:
     type: File
     format: edam:format_2331 # HTML
     label: Footer for HTML report
+  questions:
+    type: File
 
 outputs:
   qc-html:
@@ -139,6 +141,7 @@ steps:
       reportfunc: reportfunc
       headhtml: headhtml
       tailhtml: tailhtml
+      questions: questions
     out: [report, llmreport]
 
 s:codeRepository: https://github.com/arvados/arvados-tutorial

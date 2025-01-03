@@ -21,7 +21,7 @@ requirements:
       - {$import: llamafile-schema.yml}
 
 steps:
-  makePrompt:
+  make-prompt:
     in:
       promptprefix: promptprefix
       reportfile: report
@@ -29,10 +29,10 @@ steps:
     run: construct-prompt.cwl
     out: [text]
 
-  response:
+  ai-report-summary:
     in:
       llamafile: llamafile
-      promptfile: makePrompt/text
+      promptfile: make-prompt/text
       context: context
     run: llamafile.cwl
     out: [response]
@@ -40,4 +40,4 @@ steps:
 outputs:
   responses:
     type: File
-    outputSource: response/response
+    outputSource: ai-report-summary/response
