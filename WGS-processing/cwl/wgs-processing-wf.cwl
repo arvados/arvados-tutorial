@@ -80,6 +80,20 @@ inputs:
     type: File
     format: edam:format_2331 # HTML
     label: Footer for HTML report
+  questions:
+    type: File
+    default:
+      class: File
+      contents: |
+        Please answer the following questions about the genome variant report.
+
+        1. What is the most important variant in this genome?
+
+        2. Does this variant start to impact participants at birth or later in life?
+
+        3. Are there pharmacogenetic variants that are important?
+
+        Write your answers here:
 
 outputs:
   gvcf:
@@ -106,20 +120,6 @@ outputs:
     outputSource: bwamem-gatk-report/qc-html
     format: edam:format_2331 # HTML
     label: FASTQ quality reports produced by fastqc
-  questions:
-    type: File
-    default:
-      class: File
-      contents: |
-        Please answer the following questions about the genome variant report.
-
-        1. What is the most important variant in this genome?
-
-        2. Does this variant start to impact participants at birth or later in life?
-
-        3. Are there pharmacogenetic variants that are important?
-
-        Write your answers here:
 
 steps:
   getfastq:
