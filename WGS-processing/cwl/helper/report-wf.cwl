@@ -51,6 +51,10 @@ inputs:
     type: 'llm/llamafile-schema.yml#LlamaFile'
     default: {$import: "llm/mistral.yml"}
 
+  context:
+    type: int
+    default: 25000
+
 outputs:
   report:
     type: File
@@ -97,7 +101,7 @@ steps:
       promptprefix: promptprefix
       report: medgen-report/report
       questions: questions
-      context: {valueFrom: $(25000)}
+      context: context
       llamafile: llamafile
     out: [responses]
 
