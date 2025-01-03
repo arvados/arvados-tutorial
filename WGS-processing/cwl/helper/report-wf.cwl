@@ -97,8 +97,13 @@ steps:
       promptprefix: promptprefix
       reportfile: medgen-report/report
       questions: questions
-      context: $(25000)
+      context: {valueFrom: $(25000)}
     out: [responses]
+
+requirements:
+  SchemaDefRequirement:
+    types:
+      - {$import: llm/llamafile-schema.yml}
 
 s:codeRepository: https://github.com/arvados/arvados-tutorial
 s:license: https://www.gnu.org/licenses/agpl-3.0.en.html
