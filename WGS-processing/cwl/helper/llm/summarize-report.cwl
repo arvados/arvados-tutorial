@@ -34,7 +34,6 @@ steps:
       llamafile: llamafile
       promptfile: makePrompt/text
       context: context
-    scatter: scaleout
     run: llamafile.cwl
     out: [response]
 
