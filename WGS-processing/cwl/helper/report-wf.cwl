@@ -95,9 +95,10 @@ steps:
     run: llm/summarize-report.cwl
     in:
       promptprefix: promptprefix
-      reportfile: medgen-report/report
+      report: medgen-report/report
       questions: questions
       context: {valueFrom: $(25000)}
+      llamafile: llamafile
     out: [responses]
 
 requirements:
