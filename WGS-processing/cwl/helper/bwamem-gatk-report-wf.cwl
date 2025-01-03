@@ -29,7 +29,7 @@ inputs:
   fullintervallist:
     type: File
     label: Full list of intervals to operate over
-  sample: 
+  sample:
     type: string
     label: Sample Name
   knownsites1:
@@ -44,7 +44,7 @@ inputs:
     label: VCF of known indel sites for BQSR
     secondaryFiles:
       - .tbi
-  scattercount: 
+  scattercount:
     type: string
     label: Desired split for variant calling
   clinvarvcf:
@@ -72,14 +72,14 @@ outputs:
   qc-zip:
     type: File[]
     label: Zip files of FASTQ QC report and associated data
-    outputSource: fastqc/out-zip 
+    outputSource: fastqc/out-zip
   gvcf:
     type: File
     outputSource: haplotypecaller/gatheredgvcf
     format: edam:format_3016 # GVCF
     label: GVCF generated from GATK Haplotype Caller
   report:
-    type: File  
+    type: File
     outputSource: generate-report/report
     format: edam:format_2331 # HTML
     label: ClinVar variant report
@@ -116,7 +116,7 @@ steps:
       bam: mark-duplicates/dupbam
     out: [indexedbam]
   haplotypecaller:
-    run: scatter-gatk-wf-with-interval.cwl 
+    run: scatter-gatk-wf-with-interval.cwl
     in:
       reference: reference
       fullintervallist: fullintervallist

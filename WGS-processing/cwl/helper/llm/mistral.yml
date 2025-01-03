@@ -1,0 +1,6 @@
+llamafile:
+  class: File
+  location: keep:751afe1056a8ca9861af8d08bd7e3453+3352/mistral-7b-instruct-v0.2.Q5_K_M.llamafile
+llamadir:
+  class: Directory
+  location: keep:fdbdfd9b98328d23b51ae32fca2732a9+453/.llamafile/

@@ -1,0 +1,5 @@
+name: LlamaFile
+type: record
+fields:
+  llamafile: File
+  llamadir: Directory?
