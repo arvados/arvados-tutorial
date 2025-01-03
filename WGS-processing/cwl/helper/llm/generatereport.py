@@ -49,6 +49,8 @@ def reportvariants(reportdata):
                     md = json.load(medgen)
                     #print(json.dumps(md, indent=2))
 
+                    if not md["esearchresult"]["idlist"]:
+                        continue
                     medgenid = md["esearchresult"]["idlist"][0]
                     medgen = Entrez.esummary(db="medgen", id=md["esearchresult"]["idlist"][0], retmode='json')
                     md = json.load(medgen)

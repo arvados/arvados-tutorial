@@ -92,6 +92,11 @@ outputs:
     outputSource: bwamem-gatk-report/report
     format: edam:format_2331 # HTML
     label: ClinVar variant reports
+  llmreport:
+    type: File[]
+    outputSource: bwamem-gatk-report/llmreport
+    format: edam:format_2331 # HTML
+    label: AI summary
   qcreport:
     type:
       type: array
@@ -126,7 +131,7 @@ steps:
       reportfunc: reportfunc
       headhtml: headhtml
       tailhtml: tailhtml
-    out: [qc-html,qc-zip,gvcf,report]
+    out: [qc-html,qc-zip,gvcf,report,llmreport]
 
 s:codeRepository: https://github.com/arvados/arvados-tutorial
 s:license: https://www.gnu.org/licenses/agpl-3.0.en.html

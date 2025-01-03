@@ -83,6 +83,10 @@ outputs:
     outputSource: generate-report/report
     format: edam:format_2331 # HTML
     label: ClinVar variant report
+  llmreport:
+    type: File
+    outputSource: generate-report/llmreport
+    label: ClinVar variant report
 
 steps:
   fastqc:
@@ -135,7 +139,7 @@ steps:
       reportfunc: reportfunc
       headhtml: headhtml
       tailhtml: tailhtml
-    out: [report]
+    out: [report, llmreport]
 
 s:codeRepository: https://github.com/arvados/arvados-tutorial
 s:license: https://www.gnu.org/licenses/agpl-3.0.en.html
