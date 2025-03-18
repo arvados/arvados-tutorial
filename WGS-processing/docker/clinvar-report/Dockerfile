@@ -4,7 +4,7 @@ MAINTAINER Sarah Wait Zaranek <swz@curii.com>
 
 # Install python tools
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
-RUN apt-get install -qy apt-utils unzip autoconf wget python-pip python-numpy python-scipy python-matplotlib python-pandas 
+RUN apt-get install -qy apt-utils unzip autoconf wget python3-pip python3-numpy python3-scipy python3-matplotlib python3-pandas
 
 RUN apt-get upgrade -y
 RUN apt-get clean
@@ -18,7 +18,7 @@ RUN cd /tmp && git clone 'https://github.com/simongog/sdsl-lite.git' && cd sdsl-
 RUN apt-get remove libhts-dev
 
 # Install htslib 1.10.2
-RUN cd /tmp && wget http://github.com/samtools/htslib/archive/1.10.2.zip && unzip 1.10.2 && cd htslib-1.10.2 && make && make install && cd /tmp && rm -rf htslib-1.10.2 && ldconfig
+RUN cd /tmp && wget http://github.com/samtools/htslib/archive/1.10.2.zip && unzip 1.10.2 && cd htslib-1.10.2 && make && make install && cd /tmp && rm -rf htslib-1.10.2 && /sbin/ldconfig
 
 # Install bcftools 1.10.2
 RUN wget http://github.com/samtools/bcftools/archive/1.10.2.zip && unzip 1.10.2 && cd bcftools-1.10.2 && autoheader && autoconf && ./configure && make && make install
