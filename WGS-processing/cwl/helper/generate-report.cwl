@@ -38,7 +38,7 @@ outputs:
     outputBinding:
       glob: "*html"
 
-baseCommand: python
+baseCommand: /usr/bin/python3
 
 arguments:
   - $(inputs.reportfunc)
