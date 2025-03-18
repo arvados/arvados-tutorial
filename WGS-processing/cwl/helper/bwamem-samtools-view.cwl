@@ -12,12 +12,12 @@ hints:
     outputDirType: keep_output_dir
   ResourceRequirement:
     ramMin: 30000
-    coresMin: 16
+    coresMin: 6
   SoftwareRequirement:
     packages:
       BWA:
         specs: [ "https://identifiers.org/rrid/RRID:SCR_010910" ]
-        version: [ "0.7.17" ]
+        version: [ "0.7.18" ]
       Samtools:
         specs: [ "https://identifiers.org/rrid/RRID:SCR_002105" ]
         version: [ "1.10" ]
@@ -58,7 +58,7 @@ outputs:
       glob: "*bam"
 
 arguments:
-  - /bwa-0.7.17/bwa
+  - /bwa-0.7.18/bwa
   - mem
   - -M
   - -t

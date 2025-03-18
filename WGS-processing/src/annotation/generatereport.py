@@ -13,11 +13,10 @@ def tablegeneration(reportdata,sectionlabel):
     str_io = io.StringIO()
     reportdatasub.to_html(buf=str_io, classes='table table-bordered',index_names=False,index=False)
     html_str = str_io.getvalue()
-    html_str_encoded = unicode(html_str).encode('utf8')
-    html_str_encoded = html_str_encoded.replace('&lt;','<')
-    html_str_encoded = html_str_encoded.replace('&gt;','>')
-    html_str_encoded = html_str_encoded.replace('_',' ')
-    section_html = labelhtml+html_str_encoded
+    html_str = html_str.replace('&lt;','<')
+    html_str = html_str.replace('&gt;','>')
+    html_str = html_str.replace('_',' ')
+    section_html = labelhtml+html_str
     return section_html
 
 def generatereport():
@@ -90,7 +89,7 @@ def generatereport():
     total_html = source_code_head + pathogenic_html + likely_pathogenic_html + drug_html + protective_html + risk_html + affects_html + association_html + other_html + benign_html + likely_benign_html + source_code_tail
   
     # write out report html
-    f = open(samplename+'.html','wb')
+    f = open(samplename+'.html','w')
     f.write(total_html)
     f.close()
 
